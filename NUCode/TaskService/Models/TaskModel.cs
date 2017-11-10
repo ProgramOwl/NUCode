@@ -17,5 +17,15 @@ namespace TaskService.Models
         public DateTime DateStart { get; set; }
         public string Description { get; set; }
         public DateTime TimeDue { get; set; }
+
+        public TaskModel(string name, DateTime dueDate, TimeSpan estDuration, List<string> tags)
+        {
+
+        }
+
+        public TaskModel()
+        {
+
+        }
     }
 }
