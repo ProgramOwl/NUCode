@@ -14,5 +14,6 @@ namespace TaskService.Services
         void AddTask(TaskModel model);
         void EditTaskById(int id, TaskModel model);
         void DeleteTaskById(int id);
+        AllTasks GetAllArchivedTasks();
     }
 }

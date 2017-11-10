@@ -1,0 +1,14 @@
+﻿@model TaskService.Models.AllTasks
+
+@{
+    ViewBag.Title = "ArchiveTask";
+}
+
+<h2>ArchiveTask</h2>
+
+<div>
+    @foreach (var task in Model.Tasks)
+    {
+        @Html.Partial("_PartialTask", task)
+    }
+</div>

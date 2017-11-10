@@ -24,6 +24,11 @@ namespace TaskService.Services
             throw new NotImplementedException();
         }
 
+        public AllTasks GetAllArchivedTasks()
+        {
+            throw new NotImplementedException();
+        }
+
         public AllTasks GetAllTasks()
         {
             AllTasks allTasks = new AllTasks();

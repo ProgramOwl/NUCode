@@ -31,7 +31,7 @@ namespace NUCode.Controllers
 
         public ActionResult ArchiveTask()
         {
-            return View();
+            return View("ArchiveTask", Service.GetAllArchivedTasks());
         }
     }
 }
