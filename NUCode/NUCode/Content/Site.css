@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-inverse {
+    display: block;
+    width: 100px;
+    height: 100%;
+}
+
+body {
+    margin-left: 100px;
+}
