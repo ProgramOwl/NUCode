@@ -13,7 +13,7 @@ namespace TaskService.Models
         public TimeSpan EstimateDuration { get; set; }
         public List<string> Tags { get; set; }
         public bool IsCompleted { get; set; }
-        public DateTime DateCompleted { get; set; }
+        public Nullable<DateTime> DateCompleted { get; set; }
         public DateTime DateStart { get; set; }
         public string Description { get; set; }
         public int TaskId { get; set; }
@@ -52,6 +52,11 @@ namespace TaskService.Models
             DateCompleted = new DateTime();
             DateStart = new DateTime(2017, 11, 8);
             Description = $"Complete {name}";
+        }
+
+        public TaskModel()
+        {
+
         }
     }
 }

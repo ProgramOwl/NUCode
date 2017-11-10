@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NUCodeTasksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="TaskName" Type="varchar(max)" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="EstimatedDuration" Type="varchar(max)" />
+    <Property Name="isCompleted" Type="bit" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Tag1" Type="varchar(max)" />
+    <Property Name="Tag2" Type="varchar(max)" />
+    <Property Name="Tag3" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="NUCodeTasksModelStoreContainer">
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -10,7 +10,7 @@ namespace NUCode.Controllers
 {
     public class TaskController : Controller
     {
-        public static ITaskService Service = new StaticTaskService();
+        public static ITaskService Service = new TaskService.Services.TaskService();
 
         [HttpGet]
         public ActionResult AddTask()

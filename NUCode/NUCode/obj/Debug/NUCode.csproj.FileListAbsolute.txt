@@ -119,3 +119,7 @@ C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode.pdb
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskService.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskService.pdb
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskModelDAL.dll
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskService.dll.config
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskModelDAL.pdb
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskModelDAL.dll.config

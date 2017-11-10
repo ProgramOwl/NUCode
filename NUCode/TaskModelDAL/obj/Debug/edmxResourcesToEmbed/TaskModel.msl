@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NUCodeTasksModelStoreContainer" CdmEntityContainer="NUCodeTaskEntities">
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="NUCodeTasksModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="EstimatedDuration" ColumnName="EstimatedDuration" />
+          <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Tag1" ColumnName="Tag1" />
+          <ScalarProperty Name="Tag2" ColumnName="Tag2" />
+          <ScalarProperty Name="Tag3" ColumnName="Tag3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
