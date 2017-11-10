@@ -117,3 +117,5 @@ C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode.csproj.CoreCompileInputs.cache
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\obj\Debug\NUCode.pdb
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskService.dll
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode\bin\TaskService.pdb

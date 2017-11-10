@@ -26,7 +26,14 @@ namespace TaskService.Services
 
         public AllTasks GetAllTasks()
         {
-            throw new NotImplementedException();
+            AllTasks allTasks = new AllTasks();
+
+            for (int i = 0; i < 5; i++)
+            {
+                allTasks.Tasks.Add(new TaskModel("Test Task"));
+            }
+
+            return allTasks;
         }
 
         public TaskModel GetTaskById(int id)

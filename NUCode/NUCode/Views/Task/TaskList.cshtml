@@ -1,0 +1,12 @@
+﻿@model TaskService.Models.AllTasks
+
+@{
+    ViewBag.Title = "TaskList";
+}
+
+<div>
+    @foreach (var task in Model.Tasks)
+    {
+	   @Html.Partial("_PartialTask", task)
+    }
+</div>

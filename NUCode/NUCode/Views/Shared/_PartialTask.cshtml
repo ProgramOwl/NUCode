@@ -1,0 +1,26 @@
+﻿@model TaskService.Models.TaskModel
+
+<div class="TaskBox">
+    <div>
+	   Task Name:
+	   @Model.Name
+    </div>
+    <div>
+	   Due Date:
+	   @Model.DueDate
+    </div>
+    <div>
+	   Estimated Duration:
+	   @Model.EstimateDuration.ToString()
+    </div>
+    <div>
+	   Tags:
+        <ol>
+            @foreach (string tag in Model.Tags)
+		  {
+                <li>@tag</li>
+		  }
+        </ol>
+    </div>
+    <hr />
+</div>

@@ -9,5 +9,10 @@ namespace TaskService.Models
     public class AllTasks
     {
         public List<TaskModel> Tasks { get; set; }
+
+        public AllTasks()
+        {
+            Tasks = new List<TaskModel>();
+        }
     }
 }
