@@ -6,24 +6,20 @@ using System.Web.Mvc;
 
 namespace NUCode.Controllers
 {
-    public class HomeController : Controller
+    public class TaskController : Controller
     {
-        public ActionResult Index()
+        public ActionResult AddTask()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult TaskList()
         {
-            ViewBag.Message = "NUCode Neumonteers";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ArchiveTask()
         {
-            ViewBag.Message = "NUCode Neumonteers";
-
             return View();
         }
     }
