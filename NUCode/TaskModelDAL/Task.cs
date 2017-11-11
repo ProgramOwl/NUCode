@@ -18,7 +18,7 @@ namespace TaskModelDAL
         public string TaskName { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime DateStarted { get; set; }
-        public Nullable<DateTime> DateCompleted { get; set; }
+        public DateTime DateCompleted { get; set; }
         public string EstimatedDuration { get; set; }
         public bool isCompleted { get; set; }
         public string Description { get; set; }

@@ -13,12 +13,41 @@ namespace TaskService.Services
     {
         public void AddTask(TaskModel model)
         {
-            throw new NotImplementedException();
+            using (var db = new NUCodeTaskEntities())
+            {
+                var query = db.Tasks.Select(x => x);
+                model.TaskId = query.Count();
+
+                TaskModelDAL.Task taskToAdd = new TaskModelDAL.Task()
+                {
+                    TaskName = model.Name,
+                    DateCompleted = model.DateCompleted,
+                    DateStarted = model.DateStart,
+                    Description = model.Description,
+                    DueDate = model.DueDate,
+                    EstimatedDuration = $"{model.EstimateDuration.Hours}-{model.EstimateDuration.Minutes}-{model.EstimateDuration.Seconds}",
+                    id = model.TaskId,
+                    isCompleted = model.IsCompleted,
+                    Tag1 = model.Tags[0],
+                    Tag2 = model.Tags[1],
+                    Tag3 = model.Tags[2]
+                };
+
+                db.Tasks.Add(taskToAdd);
+
+                db.SaveChanges();
+            }
         }
 
         public void DeleteTaskById(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new NUCodeTaskEntities())
+            {
+                var task = db.Tasks.Where(x => x.id == id).First();
+                db.Tasks.Remove(task);
+
+                db.SaveChanges();
+            }
         }
 
         public void EditTaskById(int id, TaskModel model)
@@ -78,7 +107,7 @@ namespace TaskService.Services
 
         public TaskModel GetTaskById(int id)
         {
-            throw new NotImplementedException();
+            return GetAllTasks().Tasks.Where(x => x.TaskId == id).First();
         }
     }
 }

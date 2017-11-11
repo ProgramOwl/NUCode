@@ -21,7 +21,8 @@ namespace NUCode.Controllers
         [HttpPost]
         public ActionResult AddTask(TaskModel model)
         {
-            return View();
+            Service.AddTask(model);
+            return View("TaskList", Service.GetAllTasks());
         }
 
         public ActionResult TaskList()
@@ -32,6 +33,13 @@ namespace NUCode.Controllers
         public ActionResult ArchiveTask()
         {
             return View("ArchiveTask", Service.GetAllArchivedTasks());
+        }
+
+        public ActionResult TaskDetail(int id)
+        {
+            TaskModel model = Service.GetTaskById(id);
+
+            return View(model);
         }
     }
 }

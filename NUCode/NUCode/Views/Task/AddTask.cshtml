@@ -2,12 +2,44 @@
 
 @{
     ViewBag.Title = "AddTask";
+    if(Model != null)
+    {
+	   Model.DateStart = DateTime.Now;
+	   Model.DateCompleted = new DateTime(1900, 01, 01);
+    }
 }
 
 <h2>AddTask</h2>
 
-@using (Html.BeginForm())
-{
-
-}
-
+<div class="panel panel-success">
+    <div class="panel-heading text-center"><h4>Add A New Candy</h4></div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+	   {
+		  @Html.ValidationSummary()
+			 <div class="form-group">
+				<label>Task Name</label>
+				@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+			 </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Tag 1</label>
+                    @Html.TextBoxFor(x => x.Tags[0], new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Tag 2</label>
+                    @Html.TextBoxFor(x => x.Tags[1], new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Tag 3</label>
+                    @Html.TextBoxFor(x => x.Tags[2], new { @class = "form-control" })
+                </div>
+                <hr />
+                <div class="text-center">
+                    <input class="btn btn-success" type="submit" value="Submit" />
+                </div>}
+    </div>
+</div>

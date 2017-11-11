@@ -263,6 +263,7 @@
     <Content Include="Views\Shared\_PartialTask.cshtml" />
     <Content Include="Views\Task\AddTask.cshtml" />
     <Content Include="Views\Task\ArchiveTask.cshtml" />
+    <Content Include="Views\Task\TaskDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

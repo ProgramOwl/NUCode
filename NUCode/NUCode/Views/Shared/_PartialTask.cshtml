@@ -3,7 +3,7 @@
 <div class="TaskBox">
     <div>
 	   Task Name:
-	   @Model.Name
+	   @Html.ActionLink(@Model.Name, "TaskDetail", new { id = Model.TaskId })
     </div>
     <div>
 	   Due Date:

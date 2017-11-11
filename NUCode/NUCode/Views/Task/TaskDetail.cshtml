@@ -1,0 +1,11 @@
+﻿@model TaskService.Models.TaskModel
+
+@{
+    ViewBag.Title = "TaskDetail";
+}
+
+<h2>TaskDetail</h2>
+
+@Html.Partial("_PartialTask", Model)
+
+@Html.ActionLink("Remove This Task?", "DeleteProduct", new { id = Model.TaskId })<br />@Html.ActionLink("Edit This Task?", "EditProduct", new { id = Model.TaskId })
