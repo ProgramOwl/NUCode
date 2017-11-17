@@ -1,0 +1,34 @@
+﻿@model ECommerceService.Model.User
+
+@{
+
+}
+
+<div class="UserBox">
+    <div>
+        @Model.Name
+    </div>
+    <div>
+        @Model.ID
+    </div>
+    <div>
+        Is Admin:
+        @if (Model.RoleId == "c8299935-2c18-49a9-9765-22431174bece")
+	   {
+            <div>True</div>
+	   }
+	   else
+	   {
+            <div>False</div>
+	   }
+    </div>
+
+    @if (Model.RoleId == "c8299935-2c18-49a9-9765-22431174bece")
+    {
+        @Html.ActionLink("Demote User", "DemoteUser", new { id = Model.ID })
+    }
+    else
+    {
+        @Html.ActionLink("Promote User", "PromoteUser", new { id = Model.ID })
+    }
+</div>

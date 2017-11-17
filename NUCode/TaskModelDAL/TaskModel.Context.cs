@@ -13,10 +13,10 @@ namespace TaskModelDAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NUCodeTaskEntities : DbContext
+    public partial class NUCodeTasksEntities : DbContext
     {
-        public NUCodeTaskEntities()
-            : base("name=NUCodeTaskEntities")
+        public NUCodeTasksEntities()
+            : base("name=NUCodeTasksEntities")
         {
         }
     

@@ -4,19 +4,19 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="DueDate" Type="DateTime" Precision="3" />
-    <Property Name="DateStarted" Type="DateTime" Precision="3" />
-    <Property Name="DateCompleted" Type="DateTime" Precision="3" />
-    <Property Name="EstimatedDuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="isCompleted" Type="Boolean" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Tag1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Tag2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Tag3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="EstimatedDuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tag1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tag2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tag3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="DateCompleted" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="NUCodeTaskEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="NUCodeTasksEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Tasks" EntityType="Self.Task" />
   </EntityContainer>
 </Schema>

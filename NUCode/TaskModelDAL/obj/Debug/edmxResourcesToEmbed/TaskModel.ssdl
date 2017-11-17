@@ -4,17 +4,17 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="TaskName" Type="varchar(max)" />
-    <Property Name="DueDate" Type="datetime" />
-    <Property Name="DateStarted" Type="datetime" />
-    <Property Name="DateCompleted" Type="datetime" />
-    <Property Name="EstimatedDuration" Type="varchar(max)" />
-    <Property Name="isCompleted" Type="bit" />
-    <Property Name="Description" Type="varchar(max)" />
-    <Property Name="Tag1" Type="varchar(max)" />
-    <Property Name="Tag2" Type="varchar(max)" />
-    <Property Name="Tag3" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DueDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EstimatedDuration" Type="varchar(max)" Nullable="false" />
+    <Property Name="Tag1" Type="varchar(max)" Nullable="false" />
+    <Property Name="Tag2" Type="varchar(max)" Nullable="false" />
+    <Property Name="Tag3" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsCompleted" Type="bit" Nullable="false" />
+    <Property Name="DateCompleted" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="DateStart" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityContainer Name="NUCodeTasksModelStoreContainer">
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />

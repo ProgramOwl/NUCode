@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerceService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,8 @@ namespace TaskService.Services
         void EditTaskById(int id, TaskModel model);
         void DeleteTaskById(int id);
         AllTasks GetAllArchivedTasks();
+        UserList GetAllUsers();
+        void DemoteAdminToUserById(string Id);
+        void PromoteUserToAdminById(string Id);
     }
 }

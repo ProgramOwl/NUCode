@@ -9,17 +9,17 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="TaskName" Type="varchar(max)" />
-          <Property Name="DueDate" Type="datetime" />
-          <Property Name="DateStarted" Type="datetime" />
-          <Property Name="DateCompleted" Type="datetime" />
-          <Property Name="EstimatedDuration" Type="varchar(max)" />
-          <Property Name="isCompleted" Type="bit" />
-          <Property Name="Description" Type="varchar(max)" />
-          <Property Name="Tag1" Type="varchar(max)" />
-          <Property Name="Tag2" Type="varchar(max)" />
-          <Property Name="Tag3" Type="varchar(max)" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DueDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EstimatedDuration" Type="varchar(max)" Nullable="false" />
+          <Property Name="Tag1" Type="varchar(max)" Nullable="false" />
+          <Property Name="Tag2" Type="varchar(max)" Nullable="false" />
+          <Property Name="Tag3" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="DateCompleted" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="DateStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityContainer Name="NUCodeTasksModelStoreContainer">
           <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
@@ -33,19 +33,19 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DueDate" Type="DateTime" Precision="3" />
-          <Property Name="DateStarted" Type="DateTime" Precision="3" />
-          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
-          <Property Name="EstimatedDuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="isCompleted" Type="Boolean" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Tag1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Tag2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Tag3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EstimatedDuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tag1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tag2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tag3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateCompleted" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="NUCodeTaskEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NUCodeTasksEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tasks" EntityType="Self.Task" />
         </EntityContainer>
       </Schema>
@@ -53,21 +53,21 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NUCodeTasksModelStoreContainer" CdmEntityContainer="NUCodeTaskEntities">
+        <EntityContainerMapping StorageEntityContainer="NUCodeTasksModelStoreContainer" CdmEntityContainer="NUCodeTasksEntities">
           <EntitySetMapping Name="Tasks">
             <EntityTypeMapping TypeName="NUCodeTasksModel.Task">
               <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
                 <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
-                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
                 <ScalarProperty Name="EstimatedDuration" ColumnName="EstimatedDuration" />
-                <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Tag1" ColumnName="Tag1" />
                 <ScalarProperty Name="Tag2" ColumnName="Tag2" />
                 <ScalarProperty Name="Tag3" ColumnName="Tag3" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

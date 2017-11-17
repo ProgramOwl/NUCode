@@ -14,16 +14,16 @@ namespace TaskModelDAL
     
     public partial class Task
     {
+        public string Name { get; set; }
         public int id { get; set; }
-        public string TaskName { get; set; }
-        public DateTime DueDate { get; set; }
-        public DateTime DateStarted { get; set; }
-        public DateTime DateCompleted { get; set; }
+        public System.DateTime DueDate { get; set; }
         public string EstimatedDuration { get; set; }
-        public bool isCompleted { get; set; }
-        public string Description { get; set; }
         public string Tag1 { get; set; }
         public string Tag2 { get; set; }
         public string Tag3 { get; set; }
+        public bool IsCompleted { get; set; }
+        public System.DateTime DateCompleted { get; set; }
+        public System.DateTime DateStart { get; set; }
+        public string Description { get; set; }
     }
 }

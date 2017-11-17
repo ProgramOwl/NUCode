@@ -3,7 +3,14 @@
 <div class="TaskBox">
     <div>
 	   Task Name:
-	   @Html.ActionLink(@Model.Name, "TaskDetail", new { id = Model.TaskId })
+	   @if (ViewBag.Detail)
+	   {
+            @Model.Name
+	   }
+	   else
+	   {
+            @Html.ActionLink(Model.Name, "TaskDetail", new { id = Model.TaskId })
+	   }
     </div>
     <div>
 	   Due Date:
@@ -13,14 +20,24 @@
 	   Estimated Duration:
 	   @Model.EstimateDuration.ToString()
     </div>
-    <div>
-	   Tags:
-        <ol>
-            @foreach (string tag in Model.Tags)
+    @if (ViewBag.Detail)
+    {
+	   <div>
+		  Tags:
+		  <ol>
+			 @foreach (string tag in Model.Tags)
+			 {
+				<li>@tag</li>
+			 }
+		  </ol>
+	   </div>
+        <div>
+		  @if (User.IsInRole("Admin"))
 		  {
-                <li>@tag</li>
+                @Html.ActionLink("Remove This Task?", "DeleteTask", new { id = Model.TaskId })
+                <br />
+                @Html.ActionLink("Edit This Task?", "EditTask", new { id = Model.TaskId })
 		  }
-        </ol>
-    </div>
-    <hr />
+        </div>
+    }
 </div>

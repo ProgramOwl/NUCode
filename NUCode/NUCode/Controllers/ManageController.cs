@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NUCode.Models;
+using TaskService.Services;
 
 namespace NUCode.Controllers
 {
@@ -15,6 +16,7 @@ namespace NUCode.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public static ITaskService Service = new TaskService.Services.TaskService();
 
         public ManageController()
         {
@@ -48,6 +50,29 @@ namespace NUCode.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult ManageAdminAccounts()
+        {
+            var users = Service.GetAllUsers();
+            return View(users);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult PromoteUser(string id)
+        {
+            Service.PromoteUserToAdminById(id);
+            var users = Service.GetAllUsers();
+            return View("ManageAdminAccounts", users);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult DemoteUser(string id)
+        {
+            Service.DemoteAdminToUserById(id);
+            var users = Service.GetAllUsers();
+            return View("ManageAdminAccounts", users);
         }
 
         //

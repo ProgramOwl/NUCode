@@ -5,7 +5,6 @@ C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\bin\Debug\
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\bin\Debug\EntityFramework.xml
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\obj\Debug\TaskDAL.csprojResolveAssemblyReference.cache
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\obj\Debug\TaskDAL.csproj.CoreCompileInputs.cache
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\obj\Debug\TaskModelDAL.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskModelDAL\obj\Debug\TaskModelDAL.pdb

@@ -1,0 +1,16 @@
+﻿@model ECommerceService.Model.UserList
+@{
+    ViewBag.Title = "Manage Accounts";
+}
+
+<h2>Manage Accounts</h2>
+
+<div>
+    @foreach (var user in Model.Users)
+    {
+	   if (User.Identity.Name != user.Name)
+	   {
+            @Html.Partial("_UserPartial", user)
+	   }
+    }
+</div>

@@ -1,0 +1,2 @@
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode.Tests\obj\Debug\NUCode.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\NUCode.Tests\obj\Debug\NUCode.Tests.csproj.CoreCompileInputs.cache
