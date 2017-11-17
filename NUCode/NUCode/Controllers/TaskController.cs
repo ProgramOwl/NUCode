@@ -62,6 +62,7 @@ namespace NUCode.Controllers
         {
             Service.EditTaskById(TaskService.Services.TaskService.holderID, model);
             ViewBag.Title = "Task Catalog";
+            ViewBag.Detail = false;
             return View("TaskList", Service.GetAllTasks());
         }
 
@@ -69,9 +70,9 @@ namespace NUCode.Controllers
         public ActionResult DeleteTask(int id)
         {
             Service.DeleteTaskById(id);
-            ViewBag.Title = "Product Catalog";
-            ViewBag.ProDetail = false;
-            return View("ProductCatalog", Service.GetAllTasks());
+            ViewBag.Title = "Task List";
+            ViewBag.Detail = false;
+            return View("TaskList", Service.GetAllTasks());
         }
     }
 }
