@@ -24,6 +24,7 @@ namespace NUCode.Controllers
         public ActionResult AddTask(TaskModel model)
         {
             Service.AddTask(model);
+            ViewBag.Detail = false;
             return View("TaskList", Service.GetAllTasks());
         }
         
@@ -69,6 +70,7 @@ namespace NUCode.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteTask(int id)
         {
+            TaskService.Services.TaskService.holderID = id;
             Service.DeleteTaskById(id);
             ViewBag.Title = "Task List";
             ViewBag.Detail = false;
