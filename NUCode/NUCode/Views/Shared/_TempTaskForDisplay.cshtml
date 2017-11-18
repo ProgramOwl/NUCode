@@ -1,0 +1,24 @@
+﻿<div class="task-box">
+    <section class="t-top-bar">
+        <h3>@Html.ActionLink("Task", "TaskDetail", new { id = 1 }, new { @class = "task-h3" })</h3>
+        <div>
+            Est. Time: 2hr
+        </div>
+        <div>
+            Due: 04-03-17, 11:59
+        </div>
+        <section class="t-top-right">
+            <span>Archive</span>
+            <button typeof="checkbox" class="t-checkbox"></button>
+            @*<span class="t-checkbox">__</span>*@
+        </section>
+    </section>
+    <hr />
+    <div class="t-tag">
+        Tag: Test
+    </div>
+    <br />
+    <div class="t-body">
+        <p>And here be a quick description</p>
+    </div>
+</div>

@@ -1,48 +1,45 @@
 ﻿@model TaskService.Models.TaskModel
 
 @{
-    ViewBag.Title = "AddTask";
-    if(Model != null)
+    ViewBag.Title = "New Task";
+    if (Model != null)
     {
-	   var format = "yyyy-MM-dd HH:mm:ss:fff";
-	   var stringDate = DateTime.Now.ToString(format);
-	   Model.DateStart = DateTime.ParseExact(stringDate, format, System.Globalization.CultureInfo.InvariantCulture);
+	   Model.DateStart = DateTime.Now;
 	   Model.DateCompleted = new DateTime(1900, 01, 01);
     }
 }
 
-<h2>AddTask</h2>
-
-<div class="panel panel-success">
-    <div class="panel-heading text-center"><h4>Add A New Task</h4></div>
-    <div class="panel-body">
-        @using (Html.BeginForm())
-	   {
-		  @Html.ValidationSummary()
-			 <div class="form-group">
-				<label>Task Name</label>
-				@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-			 </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Tag 1</label>
-                    @Html.TextBoxFor(x => x.Tags[0], new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Tag 2</label>
-                    @Html.TextBoxFor(x => x.Tags[1], new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Tag 3</label>
-                    @Html.TextBoxFor(x => x.Tags[2], new { @class = "form-control" })
-                </div>
-                <hr />
-                <div class="text-center">
-                    <input class="btn btn-success" type="submit" value="Submit" />
-                </div>
-	   }
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="upper-block">
+        <div>
+            <div class="form-group">
+                <p>Task Name: </p>
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <p>Tag: </p>
+                @Html.TextBoxFor(x => x.Tags[0], new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="f-right">
+            <div class="form-group">
+                <p>Due Date: </p>
+                @Html.TextBoxFor(x => x.DueDate, new { type = "datetime-local", value = "", @class = "form-control date-box" })
+            </div>
+            <div class="form-group">
+                <p>Est. Time(hr): </p>
+                @Html.TextBoxFor(x => x.EstimateDuration, new { type = "number", min = 0, max = 24, @class = "form-control" })
+            </div>
+        </div>
     </div>
-</div>
+        <div class="des">
+            <p class="des-p">Description: </p>
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control des-b" })
+        </div>
+        <hr />
+        <div class="center">
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+}

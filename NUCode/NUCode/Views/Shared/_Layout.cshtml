@@ -3,48 +3,63 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css"/>
+    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-left">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button>*@
                 @Html.ActionLink("NUCode", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                <div class="top">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-				<li>@Html.ActionLink("Task List", "TaskList", "Task")</li>
-				<li>@Html.ActionLink("Archive List", "ArchiveTask", "Task")</li>
+                    <li>@Html.ActionLink("Task List", "TaskList", "Task")</li>
+                    <li>@Html.ActionLink("Archive List", "ArchiveTask", "Task")</li>
 				@if (User.IsInRole("Admin"))
 				{
-                        <li>@Html.ActionLink("Add Task", "AddTask", "Task")</li>
-                        <li>@Html.ActionLink("View Users", "ManageAdminAccounts", "Manage")</li>
+				    <li>@Html.ActionLink("Add Task", "AddTask", "Task")</li>
+				    <li>@Html.ActionLink("View Users", "ManageAdminAccounts", "Manage")</li>
 				}
+                    @*<li><a href="/"><div>Home</div></a></li>
+                    <li><a href="/Home/About"><div>About</div></a></li>
+                    <li><a href="/Home/Contact"><div>Contact Us</div></a></li>
+                    <li><a href="/Task/TaskList"><div>Task List</div></a></li>
+                    <li><a href="/Task/ArchiveTask"><div>Archive List</div></a></li>*@
                 </ul>
+                    </div>
+                <div class="bottom">
                 @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
+    <div class="page-content">
+        <div id="headerDiv">
+            <header>@ViewBag.Title</header>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
         <footer>
             <p>&copy; @DateTime.Now.Year - NUCode</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

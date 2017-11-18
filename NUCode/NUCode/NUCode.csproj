@@ -267,6 +267,8 @@
     <Content Include="Views\Task\EditTask.cshtml" />
     <Content Include="Views\Manage\ManageAdminAccounts.cshtml" />
     <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Shared\_PartialTask_Today.cshtml" />
+    <Content Include="Views\Shared\_TempTaskForDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,21 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
-    <h1>Home Page</h1>
-    <br />
-    <div class="Past">
-	   <h4>Past Due</h4>
-    </div>
-    <br />
-    <hr />
-    <div class="Present">
-        <h4>Today</h4>
-    </div>
-    <br />
-    <hr />
-    <div class="Future">
-        <h4>Coming Up</h4>
-    </div>
-    <br />
+<div class="ind">
+    <aside class="i-left">
+        <h2>Tasks for Today:</h2>
+        @*@foreach (var task in Model.Tasks)
+        {
+            @Html.Partial("_PartialTask_Today"), task)
+        }*@
+        @Html.Partial("_TempTaskForDisplay")
+        @Html.Partial("_TempTaskForDisplay")
+    </aside>
+
+    <aside class="i-right">
+        <h3>Your Schedual for Today</h3>
+        <div class="calander">
+            Here will be the calander
+        </div>
+    </aside>
 </div>

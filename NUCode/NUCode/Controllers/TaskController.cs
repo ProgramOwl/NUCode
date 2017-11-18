@@ -51,9 +51,9 @@ namespace NUCode.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult EditTask(int id)
         {
+            TaskService.Services.TaskService.holderID = id;
             TaskModel model = Service.GetTaskById(id);
             ViewBag.ID = id;
-            TaskService.Services.TaskService.holderID = id;
             return View(model);
         }
 

@@ -1,13 +1,56 @@
 ﻿@model TaskService.Models.AllTasks
 
 @{
-    ViewBag.Title = "TaskList";
+    ViewBag.Title = "Task List";
 }
 
-<div>
-    @foreach (var task in Model.Tasks)
-    {
-	   @Html.Partial("_PartialTask", task)
-        <hr />
-    }
+<div class="task-list">
+    <div class="sorting-bar">
+        <div class="sr-head">Sort By:</div>
+        <ul>
+            <li><a><div>Name</div></a></li>
+            <li><a><div>Tag</div></a></li>
+            <li><a><div>Due Time</div></a></li>
+            <li><a><div>Time Est.</div></a></li>
+        </ul>
+        <div class="tl-sr-right">
+		  <button class="sb-btn">Update</button>
+        </div>
+    </div>
+    <br />
+    <div class="Past">
+        <h4>Past Due</h4>
+        @foreach (var task in Model.Tasks)
+	   {
+		  if (task.DueDate < DateTime.Now)
+		  {
+                @Html.Partial("_PartialTask_Today", task)
+		  }
+	   }
+    </div>
+    <br />
+    <hr />
+    <div class="Present">
+        <h4>Today</h4>
+        @foreach (var task in Model.Tasks)
+	   {
+		  if (task.DueDate.Day == DateTime.Now.Day)
+		  {
+			 @Html.Partial("_PartialTask", task)
+		  }
+	   }
+    </div>
+    <br />
+    <hr />
+    <div class="Future">
+        <h4>Coming Up</h4>
+        @foreach (var task in Model.Tasks)
+	   {
+		  if (task.DueDate > DateTime.Now)
+		  {
+                @Html.Partial("_PartialTask", task)
+		  }
+	   }
+    </div>
+    <br />
 </div>
