@@ -24,7 +24,7 @@
 	   {
 		  if (task.DueDate < DateTime.Now)
 		  {
-                @Html.Partial("_PartialTask_Today", task)
+                @Html.Partial("_PartialTask", task)
 		  }
 	   }
     </div>
@@ -36,7 +36,7 @@
 	   {
 		  if (task.DueDate.Day == DateTime.Now.Day)
 		  {
-			 @Html.Partial("_PartialTask", task)
+			 @Html.Partial("_PartialTask_Today", task)
 		  }
 	   }
     </div>

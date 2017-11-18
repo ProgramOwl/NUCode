@@ -16,13 +16,13 @@
     </section>
     <hr />
     <div class="t-tag">
-        Tag: @Model.Tags
-        @*<ol>
-                @foreach (string tag in Model.Tags)
-                {
+        Tag:
+        <ol>
+            @foreach (string tag in Model.Tags)
+		  {
                 <li>@tag</li>
-                }
-            </ol>*@
+		  }
+        </ol>
     </div>
     <br />
     <div class="t-body">
@@ -31,29 +31,29 @@
 </div>
 
 @*<div class="task-box">
-    <section class="t-top-bar">
-        <div>
-            <h2>@Html.ActionLink(@Model.Name, "TaskDetail", new { id = Model.TaskId })</h2>
-        </div>
-        <div>
-            Est. Duration: @Model.EstimateDuration.ToString()
-        </div>
-        <div>
-            Due: @Model.DueDate
-        </div>
-        <div class="t-top-right">
-            Archive
-            @Html.CheckBoxFor(x => x.IsCompleted, new { type="checkbox", @class="checkbox"})
-        </div>
-    </section>
-    <div>
-	   Tags:
-        <ol>
-            @foreach (string tag in Model.Tags)
-		  {
-                <li>@tag</li>
-		  }
-        </ol>
-    </div>
-    <hr />
-</div>*@
+	   <section class="t-top-bar">
+		  <div>
+			 <h2>@Html.ActionLink(@Model.Name, "TaskDetail", new { id = Model.TaskId })</h2>
+		  </div>
+		  <div>
+			 Est. Duration: @Model.EstimateDuration.ToString()
+		  </div>
+		  <div>
+			 Due: @Model.DueDate
+		  </div>
+		  <div class="t-top-right">
+			 Archive
+			 @Html.CheckBoxFor(x => x.IsCompleted, new { type="checkbox", @class="checkbox"})
+		  </div>
+	   </section>
+	   <div>
+		  Tags:
+		  <ol>
+			 @foreach (string tag in Model.Tags)
+			 {
+				<li>@tag</li>
+			 }
+		  </ol>
+	   </div>
+	   <hr />
+    </div>*@

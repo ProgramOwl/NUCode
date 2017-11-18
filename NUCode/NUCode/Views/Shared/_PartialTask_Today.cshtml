@@ -6,6 +6,9 @@
         <div>
             Est. Time: @Model.EstimateDuration.ToString() hr
         </div>
+	   <div>
+		 Due Time: <span>@Model.DueDate.Hour</span>:<span>@Model.DueDate.Minute</span>
+	  </div>
         <section class="t-top-right">
             Archive
             @Html.CheckBoxFor(x => x.IsCompleted, new { type = "checkbox", @class = "t-checkbox" })

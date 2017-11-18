@@ -1,4 +1,5 @@
-﻿@{
+﻿@*@model TaskService.Models.AllTasks*@
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,11 +7,9 @@
     <aside class="i-left">
         <h2>Tasks for Today:</h2>
         @*@foreach (var task in Model.Tasks)
-        {
-            @Html.Partial("_PartialTask_Today"), task)
+	   {
+            @Html.Partial("_PartialTask_Today", task)
         }*@
-        @Html.Partial("_TempTaskForDisplay")
-        @Html.Partial("_TempTaskForDisplay")
     </aside>
 
     <aside class="i-right">
