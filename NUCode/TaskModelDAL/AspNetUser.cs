@@ -17,7 +17,7 @@ namespace TaskModelDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUser()
         {
-            this.AspNetUserRoles = new HashSet<AspNetUserRole>();
+            this.Tasks = new HashSet<Task>();
         }
     
         public string Id { get; set; }
@@ -34,6 +34,6 @@ namespace TaskModelDAL
         public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserRole> AspNetUserRoles { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

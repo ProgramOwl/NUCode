@@ -14,7 +14,7 @@ namespace TaskService.Services
         public static int holderID = 1;
         public void AddTask(TaskModel model)
         {
-            using (var db = new NUCodeTasksEntities())
+            using (var db = new TaskModelEntities())
             {
                 var query = db.Tasks.Select(x => x);
                 model.TaskId = query.Count();
@@ -28,10 +28,10 @@ namespace TaskService.Services
                     DueDate = model.DueDate,
                     EstimatedDuration = $"{model.EstimateDuration.Hours}-{model.EstimateDuration.Minutes}-{model.EstimateDuration.Seconds}",
                     id = model.TaskId,
-                    IsCompleted = model.IsCompleted,
+                    IsCompleted = false,
                     Tag1 = model.Tags[0],
-                    Tag2 = model.Tags[1],
-                    Tag3 = model.Tags[2]
+                    Tag2 = "",
+                    Tag3 = ""
                 };
 
                 db.Tasks.Add(taskToAdd);
@@ -42,7 +42,7 @@ namespace TaskService.Services
 
         public void DeleteTaskById(int id)
         {
-            using (var db = new NUCodeTasksEntities())
+            using (var db = new TaskModelEntities())
             {
                 var task = db.Tasks.Where(x => x.id == holderID).First();
                 db.Tasks.Remove(task);
@@ -53,7 +53,7 @@ namespace TaskService.Services
 
         public void EditTaskById(int id, TaskModel model)
         {
-            using (var db = new NUCodeTasksEntities())
+            using (var db = new TaskModelEntities())
             {
                 TaskModelDAL.Task taskToEdit = new TaskModelDAL.Task()
                 {
@@ -81,7 +81,7 @@ namespace TaskService.Services
         public AllTasks GetAllArchivedTasks()
         {
             AllTasks allTasks = new AllTasks();
-            using (var db = new NUCodeTasksEntities())
+            using (var db = new TaskModelEntities())
             {
                 var query = db.Tasks.Where(x => x.IsCompleted == true);
                 var tasks = query.OrderBy(x => x.DueDate).ToList();
@@ -103,34 +103,49 @@ namespace TaskService.Services
             return allTasks;
         }
 
-        public AllTasks GetAllTasks()
+        public AllTasks GetAllTasks(string currentUserId)
         {
             AllTasks allTasks = new AllTasks();
-            using (var db = new NUCodeTasksEntities())
+            using (var db = new TaskModelEntities())
             {
                 var query = db.Tasks.Select(x => x);
                 var tasks = query.OrderBy(x => x.DueDate).ToList();
                 
-                tasks.ForEach(x => allTasks.Tasks.Add(new TaskModel()
+                foreach(var task in tasks)
                 {
-                    Name = x.Name,
-                    DateCompleted = x.DateCompleted,
-                    DateStart = x.DateStart,
-                    Description = x.Description,
-                    DueDate = x.DueDate,
-                    EstimateDuration = new TimeSpan(int.Parse(x.EstimatedDuration.Split('-')[0]), int.Parse(x.EstimatedDuration.Split('-')[1]), int.Parse(x.EstimatedDuration.Split('-')[2])),
-                    IsCompleted = x.IsCompleted,
-                    Tags = new List<string>() { x.Tag1, x.Tag2, x.Tag3 },
-                    TaskId = x.id
-                }));
+                    if (!task.IsCompleted)
+                    {
+                        allTasks.Tasks.Add(new TaskModel()
+                        {
+                            Name = task.Name,
+                            DateCompleted = task.DateCompleted,
+                            DateStart = task.DateStart,
+                            Description = task.Description,
+                            DueDate = task.DueDate,
+                            EstimateDuration = new TimeSpan(int.Parse(task.EstimatedDuration.Split('-')[0]), int.Parse(task.EstimatedDuration.Split('-')[1]), int.Parse(task.EstimatedDuration.Split('-')[2])),
+                            IsCompleted = task.IsCompleted,
+                            Tags = new List<string>() { task.Tag1, task.Tag2, task.Tag3 },
+                            TaskId = task.id
+                        });
+                    }
+                }
             }
-
             return allTasks;
         }
 
-        public TaskModel GetTaskById(int id)
+        public TaskModel GetTaskById(int id, string currentUserId)
         {
-            return GetAllTasks().Tasks.Where(x => x.TaskId == id).First();
+            return GetAllTasks(currentUserId).Tasks.Where(x => x.TaskId == id).First();
+        }
+
+        public string GetUserIdByName(string name)
+        {
+            string retVal = "";
+            using (var db = new NUCodeUsersEntities())
+            {
+                retVal = db.AspNetUsers.Where(x => x.UserName == name).First().Id;
+            }
+            return retVal;
         }
 
         public UserList GetAllUsers()

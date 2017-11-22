@@ -14,6 +14,12 @@ namespace TaskModelDAL
     
     public partial class Task
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Task()
+        {
+            this.AspNetUsers = new HashSet<AspNetUser>();
+        }
+    
         public string Name { get; set; }
         public int id { get; set; }
         public System.DateTime DueDate { get; set; }
@@ -25,5 +31,8 @@ namespace TaskModelDAL
         public System.DateTime DateCompleted { get; set; }
         public System.DateTime DateStart { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

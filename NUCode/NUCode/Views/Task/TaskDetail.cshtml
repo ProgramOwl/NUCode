@@ -1,4 +1,4 @@
-﻿@*@model TaskService.Models.TaskModel*@
+﻿@model TaskService.Models.TaskModel
 
 @{
     ViewBag.Title = "Task Details";
@@ -6,22 +6,21 @@
 <div class="task-details">
     <div class="btn-baseline">
         <div>
-            <h2>Model.Name</h2>
-            <h3>Tag: Model.Tags</h3>
+            <h2>@Model.Name</h2>
+            <h3>Tags: @Model.Tags[0] - @Model.Tags[1] - @Model.Tags[2]</h3>
         </div>
         <div class="td-right">
-            <p class="btn">@Html.ActionLink("Edit", "EditProduct", new { id = 1 }, new { @class = "td-a" })</p>
-            <p class="btn">@Html.ActionLink("Delete", "DeleteProduct", new { id = 1 }, new { @class = "td-a" })</p>
+            <p class="btn">@Html.ActionLink("Edit", "EditTask", new { id = Model.TaskId }, new { @class = "td-a" })</p>
+            <p class="btn">@Html.ActionLink("Delete", "DeleteTask", new { id = Model.TaskId }, new { @class = "td-a" })</p>
         </div>
     </div>
     <hr />
     <div class="td-subsection">
-        <p>Est. Time: Model.EstimateDuration.ToString() hr</p>
-        <p class="td-sub-right">Due: Model.DueDate</p>
+        <p>Est. Time: @Model.EstimateDuration.ToString() hr</p>
+        <p class="td-sub-right">Due: @Model.DueDate</p>
     </div>
     <hr />
     <div class="t-body">
-        <p>Model.Description</p>
+        <p>@Model.Description</p>
     </div>
 </div>
-@*@Html.Partial("_PartialTask", Model)*@

@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>UserModel.tt</DependentUpon>
+      <DependentUpon>TaskModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserRole.cs">
       <DependentUpon>UserModel.tt</DependentUpon>
@@ -93,6 +93,10 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="UserModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="TaskModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TaskModel.Designer.cs</LastGenOutput>
@@ -100,10 +104,6 @@
     <None Include="TaskModel.edmx.diagram">
       <DependentUpon>TaskModel.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="UserModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="UserModel.edmx.diagram">
       <DependentUpon>UserModel.edmx</DependentUpon>
     </None>

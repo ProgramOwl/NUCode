@@ -10,8 +10,8 @@ namespace TaskService.Services
 {
     public interface ITaskService
     {
-        AllTasks GetAllTasks();
-        TaskModel GetTaskById(int id);
+        AllTasks GetAllTasks(string currentUserId);
+        TaskModel GetTaskById(int id, string currentUserId);
         void AddTask(TaskModel model);
         void EditTaskById(int id, TaskModel model);
         void DeleteTaskById(int id);
@@ -19,5 +19,6 @@ namespace TaskService.Services
         UserList GetAllUsers();
         void DemoteAdminToUserById(string Id);
         void PromoteUserToAdminById(string Id);
+        string GetUserIdByName(string name);
     }
 }

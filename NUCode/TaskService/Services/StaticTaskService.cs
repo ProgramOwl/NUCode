@@ -47,12 +47,22 @@ namespace TaskService.Services
             return allTasks;
         }
 
+        public AllTasks GetAllTasks(string currentUserId)
+        {
+            throw new NotImplementedException();
+        }
+
         public UserList GetAllUsers()
         {
             throw new NotImplementedException();
         }
 
-        public TaskModel GetTaskById(int id)
+        public TaskModel GetTaskById(int id, string currentUserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetUserIdByName(string name)
         {
             throw new NotImplementedException();
         }

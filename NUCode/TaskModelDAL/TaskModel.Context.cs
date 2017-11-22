@@ -13,10 +13,10 @@ namespace TaskModelDAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NUCodeTasksEntities : DbContext
+    public partial class TaskModelEntities : DbContext
     {
-        public NUCodeTasksEntities()
-            : base("name=NUCodeTasksEntities")
+        public TaskModelEntities()
+            : base("name=TaskModelEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace TaskModelDAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
     }
 }
