@@ -40,28 +40,6 @@
     --tBor: var(--blue);
 }
 
-.field-validation-error {
-    color: #F00;
-}
-
-.field-validation-valid {
-    display: none;
-}
-
-.input-validation-error {
-    border: 1px solid #F00;
-    background-color: #FEE;
-}
-
-.validation-summary-errors {
-    font-weight: bold;
-    color: #F00;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
 /*generic*/
 * {
     margin: 0;
@@ -589,6 +567,17 @@ textarea {
         display: table-cell;
         vertical-align: middle;
     }
+
+.task-box .t-hide {
+    display: none;
+    height: 0;
+    transition-duration: 0.5s;
+}
+.task-box:hover .t-hide {
+    display: block;
+    height: auto;
+    transition-duration: 0.5s;
+}
 
 /*colorChange*/
 .task-h3 {

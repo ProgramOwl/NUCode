@@ -20,18 +20,20 @@
 		  }
         </section>
     </section>
-    <hr />
-    <div class="t-tag">
-        Tag:
-        <ol>
-            @foreach (string tag in Model.Tags)
-		  {
-                <li>@tag</li>
-		  }
-        </ol>
-    </div>
-    <br />
-    <div class="t-body">
-        <p>@Model.Description</p>
-    </div>
+        <hr />
+    <section class="t-hide">
+        <div class="t-tag">
+            Tag:
+            <ol>
+                @foreach (string tag in Model.Tags)
+			 {
+                    <li>@tag</li>
+			 }
+            </ol>
+        </div>
+        <br />
+        <div class="t-body">
+            <p>@Model.Description</p>
+        </div>
+    </section>
 </div>
