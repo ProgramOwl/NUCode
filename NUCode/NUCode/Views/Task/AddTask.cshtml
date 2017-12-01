@@ -32,6 +32,11 @@
                 <p>Est. Time(hr): </p>
                 @Html.TextBoxFor(x => x.EstimateDuration, new { type = "number", min = 0, max = 24, @class = "form-control" })
             </div>
+	       <div class="form-group">
+	           <p>Task Difficulty: </p>
+	           @Html.TextBoxFor(x => x.TaskValue, new { type = "number", min = 0, max = 99, @class = "form-control" })
+	       </div>
+
         </div>
     </div>
         <div class="des">

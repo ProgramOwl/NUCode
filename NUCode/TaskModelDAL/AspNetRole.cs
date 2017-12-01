@@ -12,9 +12,9 @@ namespace TaskModelDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserRole
+    public partial class AspNetRole
     {
-        public string UserId { get; set; }
-        public string RoleId { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -21,21 +21,38 @@ namespace NUCode.Controllers
         [HttpPost]
         public ActionResult AddTask(TaskModel model)
         {
-            Service.AddTask(model);
             ViewBag.Detail = false;
-            return View("TaskList", Service.GetAllTasks(Service.GetUserIdByName(User.Identity.Name)));
+
+            if (ModelState.IsValid)
+            {
+                model.UserId = Service.GetUserIdByName(User.Identity.Name);
+                Service.AddTask(model);
+                return View("TaskList", Service.GetAllTasksById(model.UserId));
+            }
+            else
+            {
+                return View();
+            }
+
         }
         
         public ActionResult TaskList()
         {
             ViewBag.Detail = false;
-            return View("TaskList", Service.GetAllTasks(Service.GetUserIdByName(User.Identity.Name)));
+            if (User.IsInRole("Admin"))
+            {
+                return View("TaskList", Service.GetAllTasks());
+            }
+            else
+            {
+                return View("TaskList", Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)));
+            }
         }
         
-        public ActionResult ArchiveTask()
+        public ActionResult ArchivedTask()
         {
             ViewBag.Detail = false;
-            return View("ArchiveTask", Service.GetAllArchivedTasks());
+            return View("ArchivedTask", Service.GetAllArchivedTasksById(Service.GetUserIdByName(User.Identity.Name)));
         }
         
         public ActionResult TaskDetail(int id)
@@ -60,7 +77,7 @@ namespace NUCode.Controllers
             Service.EditTaskById(TaskService.Services.TaskService.holderID, model);
             ViewBag.Title = "Task Catalog";
             ViewBag.Detail = false;
-            return View("TaskList", Service.GetAllTasks());
+            return View("TaskList", Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)));
         }
         
         public ActionResult DeleteTask(int id)
@@ -69,7 +86,17 @@ namespace NUCode.Controllers
             Service.DeleteTaskById(id);
             ViewBag.Title = "Task List";
             ViewBag.Detail = false;
-            return View("TaskList", Service.GetAllTasks());
+            return View("TaskList", Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)));
+        }
+
+        public ActionResult ArchiveTask(int id)
+        {
+            TaskService.Services.TaskService.holderID = id;
+            ViewBag.Detail = false;
+            TaskModel model = Service.GetTaskById(id, Service.GetUserIdByName(User.Identity.Name));
+            model.UserId = Service.GetUserIdByName(User.Identity.Name);
+            Service.ArchiveTask(model);
+            return View("TaskList", Service.GetAllTasksById(model.UserId));
         }
     }
 }

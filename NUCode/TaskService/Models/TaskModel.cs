@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace TaskService.Models
 {
     public class TaskModel
     {
+        [Required(ErrorMessage = "You must provide a name for this task")]
         public string Name { get; set; }
         public DateTime DueDate { get; set; }
         public TimeSpan EstimateDuration { get; set; }
@@ -18,6 +20,9 @@ namespace TaskService.Models
         public string Description { get; set; }
         public int TaskId { get; set; }
         public static int Id = 1;
+        public string UserId { get; set; }
+        [Required(ErrorMessage = "You must provide a name for this task")]
+        public int TaskValue { get; set; }
 
         public TaskModel(int id, string name = "Task", DateTime dueDate = new DateTime(), TimeSpan estDuration = new TimeSpan(), List<string> tags = null, bool isCompleted = false, DateTime dateCompleted = new DateTime(), DateTime dateStart = new DateTime(), string desc = "Task Due")
         {

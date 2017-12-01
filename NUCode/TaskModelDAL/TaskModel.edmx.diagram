@@ -4,10 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="32b1577fabbb4f3f86c7a218f0ad2249" Name="Diagram1">
-        <EntityTypeShape EntityType="TaskModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaskModel.Task" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="TaskModel.UserTaskLists" ManuallyRouted="false" />
+      <Diagram DiagramId="4339076040314ca19d2efa1c0752a587" Name="Diagram1">
+        <EntityTypeShape EntityType="TaskModel.Task" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

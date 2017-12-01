@@ -10,8 +10,14 @@
             Due: @Model.DueDate
         </div>
         <section class="t-top-right">
-            Archive
-            @Html.CheckBoxFor(x => x.IsCompleted, new { type = "checkbox", @class = "t-checkbox" })
+		  @if (Model.IsCompleted)
+		  {
+                @Html.ActionLink("Un-Archive", "ArchiveTask", "Task", new { id = Model.TaskId }, null)
+		  }
+		  else
+		  {
+			 @Html.ActionLink("Archive", "ArchiveTask", "Task", new { id = Model.TaskId }, null)
+		  }
         </section>
     </section>
     <hr />
@@ -29,31 +35,3 @@
         <p>@Model.Description</p>
     </div>
 </div>
-
-@*<div class="task-box">
-	   <section class="t-top-bar">
-		  <div>
-			 <h2>@Html.ActionLink(@Model.Name, "TaskDetail", new { id = Model.TaskId })</h2>
-		  </div>
-		  <div>
-			 Est. Duration: @Model.EstimateDuration.ToString()
-		  </div>
-		  <div>
-			 Due: @Model.DueDate
-		  </div>
-		  <div class="t-top-right">
-			 Archive
-			 @Html.CheckBoxFor(x => x.IsCompleted, new { type="checkbox", @class="checkbox"})
-		  </div>
-	   </section>
-	   <div>
-		  Tags:
-		  <ol>
-			 @foreach (string tag in Model.Tags)
-			 {
-				<li>@tag</li>
-			 }
-		  </ol>
-	   </div>
-	   <hr />
-    </div>*@

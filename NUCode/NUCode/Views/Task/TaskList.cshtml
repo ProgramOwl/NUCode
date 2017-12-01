@@ -22,7 +22,7 @@
         <h4>Past Due</h4>
         @foreach (var task in Model.Tasks)
 	   {
-		  if (task.DueDate < DateTime.Now)
+		  if (task.DueDate.Year <= DateTime.Now.Year && task.DueDate.Month <= DateTime.Now.Month && task.DueDate.Day < DateTime.Now.Day)
 		  {
                 @Html.Partial("_PartialTask", task)
 		  }
@@ -34,9 +34,9 @@
         <h4>Today</h4>
         @foreach (var task in Model.Tasks)
 	   {
-		  if (task.DueDate.Day == DateTime.Now.Day)
+		  if (task.DueDate.Year == DateTime.Now.Year && task.DueDate.Month == DateTime.Now.Month && task.DueDate.Day == DateTime.Now.Day)
 		  {
-			 @Html.Partial("_PartialTask_Today", task)
+			 @Html.Partial("_PartialTask", task)
 		  }
 	   }
     </div>
@@ -46,7 +46,7 @@
         <h4>Coming Up</h4>
         @foreach (var task in Model.Tasks)
 	   {
-		  if (task.DueDate > DateTime.Now)
+		  if (task.DueDate > DateTime.Now && task.DueDate.Day > DateTime.Now.Day)
 		  {
                 @Html.Partial("_PartialTask", task)
 		  }

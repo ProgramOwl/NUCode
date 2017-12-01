@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TaskService.Models;
+using TaskService.Services;
 
 namespace NUCode.Controllers
 {
@@ -11,7 +13,8 @@ namespace NUCode.Controllers
         [Authorize()]
         public ActionResult Index()
         {
-            return View();
+            ITaskService Service = new TaskService.Services.TaskService();
+            return View(Service.GetTodayTasks(User.Identity.Name));
         }
 
         public ActionResult About()

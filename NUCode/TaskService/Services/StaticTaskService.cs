@@ -8,7 +8,7 @@ using TaskService.Models;
 
 namespace TaskService.Services
 {
-    public class StaticTaskService : ITaskService
+    public class StaticTaskService 
     {
         public void AddTask(TaskModel model)
         {
@@ -35,6 +35,11 @@ namespace TaskService.Services
             throw new NotImplementedException();
         }
 
+        public AllTasks GetAllArchivedTasksById(string currentUserId)
+        {
+            throw new NotImplementedException();
+        }
+
         public AllTasks GetAllTasks()
         {
             AllTasks allTasks = new AllTasks();
@@ -52,12 +57,22 @@ namespace TaskService.Services
             throw new NotImplementedException();
         }
 
+        public AllTasks GetAllTasksById(string currentUserId)
+        {
+            throw new NotImplementedException();
+        }
+
         public UserList GetAllUsers()
         {
             throw new NotImplementedException();
         }
 
         public TaskModel GetTaskById(int id, string currentUserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AllTasks GetTodayTasks()
         {
             throw new NotImplementedException();
         }

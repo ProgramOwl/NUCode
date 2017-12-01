@@ -5,23 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="TaskModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
         <EntityType Name="Tasks">
           <Key>
             <PropertyRef Name="id" />
@@ -37,82 +20,17 @@
           <Property Name="DateCompleted" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="DateStart" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'NUCodeTasks.dbo.UserTaskLists' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="UserTaskLists">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="TaskListId" />
-          </Key>
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TaskListId" Type="int" Nullable="false" />
+          <Property Name="TaskValue" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_UserTaskLists_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="UserTaskLists" Type="Self.UserTaskLists" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserTaskLists">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserTaskLists_Tasks">
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
-          <End Role="UserTaskLists" Type="Self.UserTaskLists" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="UserTaskLists">
-              <PropertyRef Name="TaskListId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="TaskModelStoreContainer">
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserTaskLists" EntityType="Self.UserTaskLists" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserTaskLists].[UserId] AS [UserId], 
-    [UserTaskLists].[TaskListId] AS [TaskListId]
-    FROM [dbo].[UserTaskLists] AS [UserTaskLists]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_UserTaskLists_AspNetUsers" Association="Self.FK_UserTaskLists_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="UserTaskLists" EntitySet="UserTaskLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserTaskLists_Tasks" Association="Self.FK_UserTaskLists_Tasks">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="UserTaskLists" EntitySet="UserTaskLists" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Tasks" Relationship="Self.UserTaskLists" FromRole="AspNetUsers" ToRole="Tasks" />
-        </EntityType>
         <EntityType Name="Task">
           <Key>
             <PropertyRef Name="id" />
@@ -128,19 +46,11 @@ warning 6002: The table/view 'NUCodeTasks.dbo.UserTaskLists' does not have a pri
           <Property Name="DateCompleted" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.UserTaskLists" FromRole="Tasks" ToRole="AspNetUsers" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaskValue" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="UserTaskLists">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
-          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="TaskModelEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Tasks" EntityType="Self.Task" />
-          <AssociationSet Name="UserTaskLists" Association="Self.UserTaskLists">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Tasks" EntitySet="Tasks" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -148,24 +58,6 @@ warning 6002: The table/view 'NUCodeTasks.dbo.UserTaskLists' does not have a pri
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TaskModelStoreContainer" CdmEntityContainer="TaskModelEntities">
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="TaskModel.AspNetUser">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tasks">
             <EntityTypeMapping TypeName="TaskModel.Task">
               <MappingFragment StoreEntitySet="Tasks">
@@ -180,17 +72,11 @@ warning 6002: The table/view 'NUCodeTasks.dbo.UserTaskLists' does not have a pri
                 <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
                 <ScalarProperty Name="DateStart" ColumnName="DateStart" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TaskValue" ColumnName="TaskValue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UserTaskLists" TypeName="TaskModel.UserTaskLists" StoreEntitySet="UserTaskLists">
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="Tasks">
-              <ScalarProperty Name="id" ColumnName="TaskListId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

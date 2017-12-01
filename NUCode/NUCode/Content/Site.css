@@ -1,4 +1,68 @@
-﻿/*generic*/
+﻿:root {
+    --darkBase: black;
+    --lightBase: white;
+    --black: black;
+    --baige: rgb(255,250,236); /*rgb(255,230,179);*/
+    --dbaige: rgb(255,230,179);
+    --red: rgb(194,10,51);
+    --green: rgb(157,242,121);
+    --orange: rgb(255,128,51);
+    --blue: rgb(13,204,255);
+    --brown: rgb(108,89,83);
+    /*Nav*/
+    --navB: var(--baige);
+    --navA: var(--brown);
+    --navADHover: var(--blue);
+    --navhr: var(--orange);
+    /*nav head*/
+    --navHB: var(--brown);
+    --navHC: var(--blue);
+    --navHD: var(--green);
+    --navHDHover: var(--orange);
+    --navHAct: var(--green);
+    --navHDAct: var(--blue);
+    /*head and foot*/
+    /*--headFootBack: 'godOfWar';*/
+    --headFootC: var(--brown);
+    --headFootBack: rgb(255,250,236);
+    --headFootBorder: var(--orange);
+    /*Body*/
+    --bodyB: black;
+    --hr: var(--green);
+    --h2: var(--baige);
+    --h4: var(--baige);
+    --hND: var(--red);
+    /*task box*/
+    --tShadow: var(--orange);
+    --tB: var(--baige);
+    --tC: var(--brown);
+    --tCH: var(--orange);
+    --tBor: var(--blue);
+}
+
+.field-validation-error {
+    color: #F00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #F00;
+    background-color: #FEE;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #F00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*generic*/
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +73,11 @@ html {
     min-height: 300px;
     min-width: 400px;
     font-size: 16px;
+    background-color: var(--bodyB);
+    color: var(--baige);
+}
+li {
+    list-style: none;
 }
 body {
     z-index: -20;
@@ -23,19 +92,26 @@ body {
     min-width: 340px;
 }
 h2 {
-    color: black;
-    text-decoration: underline solid black;
+    color: var(--h2);
+    text-decoration: underline solid var(--hND);
     padding: .3em;
 }
 hr {
     border: none;
-    border-bottom: 1px solid black;
-    box-shadow: 0 1px 2px gray;
+    border-bottom: 1px solid var(--hr);
+    box-shadow: 0 1px 2px var(--hr);
     width: 98%;
-    margin-bottom:5px;
+    margin-bottom: 5px;
 }
-p{
-    padding:5px 10px 5px 0;
+p {
+    padding: 5px 10px 5px 0;
+    color: var(--baige);
+}
+a{
+    color: var(--orange);
+}
+a:hover {
+    color: var(--green);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -85,8 +161,8 @@ textarea {
     z-index: 1;
     position: relative;
     right: 0;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
 }
 .navbar {
     z-index: 0;
@@ -105,34 +181,38 @@ textarea {
     min-width: 70px;
     max-width: 100px;*/
     height: 100%;
-    background-color: black;
-    color: white;
+    background-color: var(--navB);
+    color: var(--navA);
 }
 
 /*The head*/
 .navbar-header {
+    display:table-cell;
+    vertical-align:middle;
+    height: 65px;
+    width: 100px;
     text-align: center;
-    padding-top: 10%;
-    padding-bottom: 15%;
-    background-color: black;
+    background-color: var(--navHB);
 }
-.navbar-header a {
-        color: gray;
-        text-decoration: underline solid white;
+    .navbar-header a {
+        transition-duration: 0.5s;
+        color: var(--navHC);
+        text-decoration: underline solid var(--navHD);
         font-weight: 700;
         font-size: 24px;
         font-family: sans-serifs; /*find what font it is actually using*/
     }
-.navbar-header a:hover {
-     text-decoration: underline solid gray;
-}
-.navbar-header a:active {
-    color: white;
-    text-decoration: underline solid white;
-}
+        .navbar-header a:hover {
+            text-decoration: underline solid var(--navHDHover);
+        }
+        .navbar-header a:active {
+            color: var(--navHAct);
+            text-decoration: underline solid var(--navHDAct);
+        }
+
 /*links, .navbar-collapse,*/
 .collapse {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /*the main links, .nav*/
 .nav li {
@@ -140,27 +220,28 @@ textarea {
 }
 .nav a {
     text-decoration: none;
-    color: white;
+    color: var(--navA);
     /*transition-duration: .5s;*/
     padding-left: 10%;
     padding-bottom: 3%;
-    width:100px;
+    width: 100px;
 }
-.nav a:hover {
-    text-decoration: underline solid gray;
-    /*background: white;
+    .nav a:hover {
+        text-decoration: underline solid var(--navADHover);
+        /*background: white;
     color: black;*/
-}
+    }
 .nav hr {
     border: none;
-    border-bottom: 1px solid transparent;
-    box-shadow: 0 1px 2px gray;
+    border-bottom: 1px solid var(--navB);
+    box-shadow: 0 1px 2px var(--navhr);
     width: 100%;
     margin: 100% 0 10px 0;
 }
 .top {
     padding-bottom: 20px;
-    background-color: black;
+    padding-top: 5px;
+    background-color: var(--navB);
 }
 /*the login partial links, .nav, .navbar-nav*/
 .bottom {
@@ -169,7 +250,9 @@ textarea {
     z-index: -1;
 }
 .navbar-right {
-    height: 60px;
+    height:30%;
+    min-height: 100px;
+    max-height: 200px;
     width: 100px;
 }
 
@@ -178,44 +261,40 @@ textarea {
     text-align: justify;
     text-indent: 2em;
 }
-.center{
-    text-align:center;
+.center {
+    text-align: center;
 }
 .btn {
     font-size: 16px;
-    color: white;
-    background-color: #111;
-    border: 3px outset #aaa;
+    color: var(--blue);
+    background-color: var(--baige);
+    border: 3px outset var(--brown);
     min-height: 1.25em;
     padding: .3em 1.5em;
     margin: 5px 0;
     transition-duration: .5s;
 }
-.btn:hover {
-    background-color: #333;
-}
-.btn:active {
-    background-color: #444;
-    border: 3px inset #aaa;
-}
+    .btn:hover {
+        background-color: var(--brown);
+        border: 3px outset var(--baige);
+    }
+    .btn:active {
+        color: var(--green);
+        border: 3px inset var(--baige);
+    }
 .input-box, .form-control {
     min-height: 1.25em;
     padding: 3px 5px;
     margin: 3px 0;
     font-size: 16px;
-    color: white;
-    background-color: black;
-    border: 3px groove #aaa;
-    border-left: 3px groove #777;
-    border-bottom: 3px ridge #777;
-    border-right: 3px ridge #aaa;
+    color: var(--brown);
+    background-color: var(--baige);
+    border: 2px ridge var(--blue);
+    border-left: 4px ridge var(--blue);
+    border-bottom: 3px groove var(--blue);
+    border-right: 5px groove var(--blue);
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
-}
-
-/*Testing*/
-.outline {
-    border: 2px dashed purple;
 }
 
 /*Main*/
@@ -242,19 +321,19 @@ textarea {
 }
 
 /*About*/
-.about-left{
-    padding:5px 0 20px 5px;
+.about-left {
+    padding: 5px 0 20px 5px;
 }
-.about-left p {
-    color: black;
-    padding: 5px 10px;
-    width: 50%;
-    min-width: 100px;
-    max-width: 500px;
-    text-align: justify;
-    text-align-last: center;
-    font-size: 18px;
-}
+    .about-left p {
+        color: var(--baige);
+        padding: 5px 10px;
+        width: 50%;
+        min-width: 100px;
+        max-width: 500px;
+        text-align: justify;
+        text-align-last: center;
+        font-size: 18px;
+    }
 .about-img {
     padding: 2px;
     margin: 10px 15px 2px 2px;
@@ -265,31 +344,32 @@ textarea {
     height: 25%;
     min-height: 50px;
     max-height: 300px;
-    background-color: black;
-    color: white;
-    border-bottom: 4px groove #bbb;
-    border-top: 4px ridge #bbb;
-    border-left: 4px ridge #888;
-    border-right: 4px groove #888;
+    background-color: var(--baige);
+    color: var(--red);
+    border-bottom: 4px groove var(--orange);
+    border-top: 4px ridge var(--orange);
+    border-left: 4px ridge var(--orange);
+    border-right: 4px groove var(--orange);
 }
 
 /*Contact Us*/
 /*Would like to get the address to be in top right when there is enough room*/
-.contact{
-    padding:5px 10px;
+.contact {
+    padding: 5px 10px;
 }
-.contact h4 {
-    color: black;
-    text-decoration: underline solid black;
-    padding-top: .3em;
-}
+    .contact h4 {
+        color: var(--h4);
+        text-decoration: underline solid var(--hND);
+        padding-top: .3em;
+    }
+
 .sec {
     padding: 5px 10px;
     display: flex;
     flex-wrap: wrap;
 }
-.sec-left{
-    padding-bottom:20px;
+.sec-left {
+    padding-bottom: 20px;
 }
 .sec-right {
     margin-left: auto;
@@ -300,24 +380,24 @@ textarea {
 .upper-block {
     padding: 10px;
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
-.f-right{
-    margin-left:auto;
+.f-right {
+    margin-left: auto;
 }
 .form-group {
     display: block;
     text-align: left;
 }
-.form-group p {
-    display:inline-flex;
-    width: 100px;
-}
-.date-box, .form-group .form-control{
-    width: 220px;
-}
-.des{
-    padding:10px;
+    .form-group p {
+        display: inline-flex;
+        width: 100px;
+    }
+    .date-box, .form-group .form-control {
+        width: 220px;
+    }
+.des {
+    padding: 10px;
 }
 .des, .des-b {
     min-width: 220px;
@@ -327,23 +407,24 @@ textarea {
 }
 
 /*Task list*/
-.task-list{
-    padding-right:10px;
+.task-list {
+    padding-right: 10px;
 }
-.task-list h4{
-    margin-bottom: 5px; 
-}
+    .task-list h4 {
+        margin-bottom: 5px;
+    }
+
 .sorting-bar {
-    margin:0;
-    font-size:16px;
-    background-color: black;
-    color: white;
+    margin: 0;
+    font-size: 16px;
+    background-color: var(--baige);
+    color: var(--brown);
     display: flex;
     flex-wrap: wrap;
 }
     .sorting-bar li {
         margin-right: -5px;
-        padding:0;
+        padding: 0;
         display: inline-flex;
         flex-wrap: nowrap;
         list-style: none;
@@ -351,51 +432,48 @@ textarea {
     .sorting-bar a, .sr-head {
         text-align: center;
         border: none;
-        border-right: 2px solid gray;
+        border-right: 2px solid var(--green);
         text-align: center;
         padding: .4em 1em;
-        color: white;
-        background-color: black;
+        color: var(--brown);
+        background-color: var(--baige);
         transition-duration: 0.5s;
     }
-.sorting-bar a:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    text-decoration: underline solid black;
-}
-.sorting-bar a:active {
-    color: white;
-    background-color: #444;
-}
+        .sorting-bar a:hover {
+            cursor: pointer;
+            background-color: var(--bodyB);
+            color: var(--baige);
+            text-decoration: underline solid var(--blue);
+        }
+        .sorting-bar a:active {
+            color: var(--baige);
+            background-color: var(--brown);
+        }
 
 .tl-sr-right {
     margin-left: auto;
     display: inline;
     padding: 2px;
 }
-/*.r-inner {
-    display: flex;
-    flex-wrap: wrap;
-}*/
+
 .sb-btn {
-    text-align:center;
+    text-align: center;
     padding: .2em 1em;
     font-size: 14px;
-    background-color: white;
-    color: black;
-    border: 3px outset #aaa;
+    color: var(--blue);
+    background-color: var(--baige);
+    border: 3px outset var(--brown);
     transition-duration: 0.5s;
 }
-.sb-btn:hover {
-    cursor: pointer;
-    color: white;
-    background-color: #666;
-}
-.sb-btn:active {
-    background-color: #444;
-    border: 3px inset #aaa;
-}
+    .sb-btn:hover {
+        cursor: pointer;
+        background-color: var(--brown);
+        border: 3px outset var(--baige);
+    }
+    .sb-btn:active {
+        color: var(--green);
+        border: 3px inset var(--baige);
+    }
 
 /*task Details*/
 .btn-baseline {
@@ -403,19 +481,28 @@ textarea {
     flex-wrap: wrap;
     flex-direction: row;
 }
-.btn-baseline h3{
-    margin-left: 10px;
-}
+    .btn-baseline h3 {
+        margin-left: 10px;
+    }
 .td-right p {
     padding: 2px .5em;
 }
+
+/*colorChange*/
 .td-a {
     padding: 0;
-    color: white;
+    color: var(--orange);
     min-width: 50px;
     font-size: 12px;
     text-decoration: none;
 }
+.td-a:hover {
+    color: var(--orange);
+}
+.td-a:active {
+        color: var(--green);
+    }
+    
 .td-right {
     margin-left: auto;
     padding-right: 15px;
@@ -428,101 +515,115 @@ textarea {
     margin-left: 5px;
     margin-right: 15px;
 }
-.td-sub-right{
-    margin-left:auto;
+.td-sub-right {
+    margin-left: auto;
 }
 
 /*Task Partial*/
 .t-checkbox {
     width: 20px;
     height: 20px;
-    background-color: white;
-    color: black;
-    border: 3px outset #aaa;
+    background-color: var(--tB);
+    color: var(--tC);
+    border: 3px outset var(--tBor);
     transition-duration: .5s;
 }
     .t-checkbox:hover {
-        background-color: black;
-        color: white;
-        border: 3px outset #aaa;
+        background-color: var(--tC);
+        color: var(--tB);
+        border: 3px outset var(--tBor);
     }
     .t-checkbox:active {
-        border: 3px inset #aaa;
+        border: 3px inset var(--tBor);
     }
     .t-checkbox:checked {
-        background-color: white;
-        color: black;
-        border: 3px inset #aaa;
+        background-color: var(--tB);
+        color: var(--tC);
+        border: 3px inset var(--tBor);
     }
+
+/*colorChange*/
 .task-box {
     transition-duration: 0.3s;
     position: static;
     margin: 3px 0;
     padding: 5px;
-    color: white;
-    background-color: black;
-    border: 3px groove #aaa;
-    border-bottom: 3px ridge #777;
-    border-right: 3px ridge #777;
+    color: var(--tC);
+    background-color: var(--tB);
+    border: 3px groove var(--tBor);
+    border-bottom: 3px ridge var(--tBor);
+    border-right: 3px ridge var(--tBor);
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
     /*box-shadow: 2px 0 10px black;*/
 }
-.task-box:hover {
-    box-shadow: 2px 0 10px black;
- }
-.task-box hr{
-    width:100%;
+    .task-box:hover {
+        box-shadow: 2px 0 10px var(--tShadow);
+    }
+    .task-box hr {
+        width: 100%;
+    }
+
+.task-box p{
+    color:var(--brown);
 }
+
 .t-top-bar {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
 }
-.t-top-bar div {
-    position: relative;
-    top: 2px;
-    margin: 0 5%;
-    font-size: 14px;
-}
+    .t-top-bar div {
+        position: relative;
+        top: 2px;
+        margin: 0 5%;
+        font-size: 14px;
+    }
 .t-top-right {
     font-size: 14px;
     margin-left: auto;
     display: inline-flex;
 }
-.t-top-right span{
-    margin-top:2px;
-    margin-right:2px;
-    display:table-cell;
-    vertical-align:middle;
+    .t-top-right span {
+        margin-top: 2px;
+        margin-right: 2px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+/*colorChange*/
+.task-h3 {
+    position: relative;
+    top: -1px;
+    color: var(--tC);
+    padding: 2px;
+    display: inline-flex;
 }
-.task-h3{
-    position:relative;
-    top:-1px;
-    color: white;
-    padding:2px;
-    display:inline-flex;
+.task-h3:hover {
+    color: var(--tCH);
 }
+
 .t-tag {
     font-size: 15px;
 }
-.t-body{
-    padding:0 5px;
-    font-size:16px;
+.t-body {
+    padding: 0 5px;
+    font-size: 16px;
 }
 
+/*colorChange*/
 /*Header*/
 #headerDiv {
     /*z-index: 1;*/
+    height: 65px;
     width: auto;
     text-align: center;
-    background: black;
-    border-bottom: 10px ridge gray;
+    background: var(--headFootBack);
+    border-bottom: 10px ridge var(--headFootBorder);
 }
 header {
-    padding: 8px 0 2px 0;
-    color: white;
+    color: var(--headFootC);
     font-size: 50px;
-    font-family: 'godOfWar';
+    font-family: var(--headF);
     font-weight: bold;
 }
 /*Foot*/
@@ -530,24 +631,24 @@ footer {
     /*position: sticky;
     bottom: 0;
     z-index: -1;*/
-    width:auto;
+    width: auto;
     border: unset;
-    border-top: 5px groove gray;
-    border-bottom: 5px ridge gray;
+    border-top: 5px ridge var(--headFootBorder);
+    border-bottom: 5px groove var(--headFootBorder);
     text-align: center;
-    background: black;
+    background: var(--headFootBack);
 }
-footer p {
-    margin: 0.1em auto;
-    color: white;
-    font-size: 12px;
-}
+    footer p {
+        margin: 0.1em auto;
+        color: var(--headFootC);
+        font-size: 12px;
+    }
 
 /*body div*/
 .body-content {
     /*z-index: 2;*/
-    background: white;
-    color: black;
+    background: var(--bodyB);
+    color: var(--white);
     padding: 10px;
     padding-right: 0;
 }

@@ -1,10 +1,6 @@
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskService.dll.config
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskService.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskService.pdb
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.csprojResolveAssemblyReference.cache
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.csproj.CoreCompileInputs.cache
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.dll
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.pdb
-C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskService.dll.config
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\EntityFramework.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskModelDAL.dll
@@ -12,3 +8,7 @@ C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\T
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\TaskModelDAL.dll.config
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\EntityFramework.xml
 C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.csprojResolveAssemblyReference.cache
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.csproj.CoreCompileInputs.cache
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.dll
+C:\Users\Dylan Shoupe\Documents\GitHub\LMSWebsite\NUCode\TaskService\obj\Debug\TaskService.pdb

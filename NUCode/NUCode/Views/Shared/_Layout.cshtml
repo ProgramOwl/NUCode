@@ -23,7 +23,7 @@
 				@if (User.Identity.IsAuthenticated)
 				{
                         <li>@Html.ActionLink("Task List", "TaskList", "Task")</li>
-                        <li>@Html.ActionLink("Archive List", "ArchiveTask", "Task")</li>
+                        <li>@Html.ActionLink("Archive List", "ArchivedTask", "Task")</li>
                         <li>@Html.ActionLink("Add Task", "AddTask", "Task")</li>
 				}
 				@if (User.IsInRole("Admin"))

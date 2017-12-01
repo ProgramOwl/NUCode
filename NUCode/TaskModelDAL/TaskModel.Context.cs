@@ -25,7 +25,6 @@ namespace TaskModelDAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
     }
 }
