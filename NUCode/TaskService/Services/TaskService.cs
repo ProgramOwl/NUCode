@@ -27,7 +27,7 @@ namespace TaskService.Services
                     DateStart = model.DateStart,
                     Description = model.Description,
                     DueDate = model.DueDate,
-                    EstimatedDuration = $"{model.EstimateDuration.Hours}-{model.EstimateDuration.Minutes}-{model.EstimateDuration.Seconds}",
+                    EstimatedDuration = model.EstimateDuration.ToString(),
                     id = model.TaskId,
                     IsCompleted = false,
                     Tag1 = model.Tags[0],
@@ -65,7 +65,7 @@ namespace TaskService.Services
                     DateStart = model.DateStart,
                     Description = model.Description,
                     DueDate = model.DueDate,
-                    EstimatedDuration = $"{model.EstimateDuration.Hours}-{model.EstimateDuration.Minutes}-{model.EstimateDuration.Seconds}",
+                    EstimatedDuration = model.EstimateDuration.ToString(),
                     id = holderID,
                     IsCompleted = model.IsCompleted,
                     Tag1 = model.Tags[0],
@@ -100,7 +100,7 @@ namespace TaskService.Services
                             DateStart = task.DateStart,
                             Description = task.Description,
                             DueDate = task.DueDate,
-                            EstimateDuration = new TimeSpan(int.Parse(task.EstimatedDuration.Split('-')[0]), int.Parse(task.EstimatedDuration.Split('-')[1]), int.Parse(task.EstimatedDuration.Split('-')[2])),
+                            EstimateDuration = int.Parse(task.EstimatedDuration),
                             IsCompleted = task.IsCompleted,
                             Tags = new List<string>() { task.Tag1, task.Tag2, task.Tag3 },
                             TaskId = task.id,
@@ -133,7 +133,7 @@ namespace TaskService.Services
                             DateStart = task.DateStart,
                             Description = task.Description,
                             DueDate = task.DueDate,
-                            EstimateDuration = new TimeSpan(int.Parse(task.EstimatedDuration.Split('-')[0]), int.Parse(task.EstimatedDuration.Split('-')[1]), int.Parse(task.EstimatedDuration.Split('-')[2])),
+                            EstimateDuration = int.Parse(task.EstimatedDuration),
                             IsCompleted = task.IsCompleted,
                             Tags = new List<string>() { task.Tag1, task.Tag2, task.Tag3 },
                             TaskId = task.id
@@ -163,10 +163,11 @@ namespace TaskService.Services
                             DateStart = task.DateStart,
                             Description = task.Description,
                             DueDate = task.DueDate,
-                            EstimateDuration = new TimeSpan(int.Parse(task.EstimatedDuration.Split('-')[0]), int.Parse(task.EstimatedDuration.Split('-')[1]), int.Parse(task.EstimatedDuration.Split('-')[2])),
+                            EstimateDuration = int.Parse(task.EstimatedDuration),
                             IsCompleted = task.IsCompleted,
                             Tags = new List<string>() { task.Tag1, task.Tag2, task.Tag3 },
-                            TaskId = task.id
+                            TaskId = task.id,
+                            TaskValue = task.TaskValue
                         });
                     }
                 }
@@ -178,12 +179,10 @@ namespace TaskService.Services
         {
             try
             {
-
                 return GetAllTasksById(currentUserId).Tasks.Where(x => x.TaskId == holderID).First();
             }
             catch (Exception)
             {
-
                 return GetAllArchivedTasksById(currentUserId).Tasks.Where(x => x.TaskId == holderID).First();
             }
         }
@@ -264,7 +263,7 @@ namespace TaskService.Services
                     DateStart = model.DateStart,
                     Description = model.Description,
                     DueDate = model.DueDate,
-                    EstimatedDuration = $"{model.EstimateDuration.Hours}-{model.EstimateDuration.Minutes}-{model.EstimateDuration.Seconds}",
+                    EstimatedDuration = model.EstimateDuration.ToString(),
                     id = holderID,
                     IsCompleted = !model.IsCompleted,
                     TaskValue = model.TaskValue,

@@ -4,27 +4,38 @@
     ViewBag.Title = "Task List";
 }
 
-<div class="task-list">
     <div class="sorting-bar">
         <div class="sr-head">Sort By:</div>
         <ul>
-            <li><a><div>Name</div></a></li>
-            <li><a><div>Tag</div></a></li>
-            <li><a><div>Due Time</div></a></li>
-            <li><a><div>Time Est.</div></a></li>
+            <li>@Html.ActionLink("Name", "SearchByName", "Task")</li>
+            <li>@Html.ActionLink("Tag", "SearchByTag", "Task")</li>
+            <li>@Html.ActionLink("Due Date", "SearchByDueDate", "Task")</li>
+	       <li>@Html.ActionLink("Time Est.", "SearchByTimeEst", "Task")</li>
+	       <li>@Html.ActionLink("Difficulty", "SearchByDifficulty", "Task")</li>
         </ul>
         <div class="tl-sr-right">
 		  <button class="sb-btn">Update</button>
         </div>
     </div>
+<div class="task-list">
     <br />
     <div class="Past">
         <h4>Past Due</h4>
         @foreach (var task in Model.Tasks)
 	   {
-		  if (task.DueDate.Year <= DateTime.Now.Year && task.DueDate.Month <= DateTime.Now.Month && task.DueDate.Day < DateTime.Now.Day)
+		  if (task.DueDate.Year <= DateTime.Now.Year && task.DueDate.Month <= DateTime.Now.Month)
 		  {
-                @Html.Partial("_PartialTask", task)
+			 if(task.DueDate.Month == DateTime.Now.Month)
+			 {
+				if(task.DueDate.Day < DateTime.Now.Day)
+				{
+				    @Html.Partial("_PartialTask", task)
+				}
+			 }
+			 else
+			 {
+                    @Html.Partial("_PartialTask", task)
+			 }
 		  }
 	   }
     </div>

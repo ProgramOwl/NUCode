@@ -269,6 +269,7 @@
     <Content Include="Views\Shared\_UserPartial.cshtml" />
     <Content Include="Views\Shared\_PartialTask_Today.cshtml" />
     <Content Include="Views\Shared\_TempTaskForDisplay.cshtml" />
+    <Content Include="Views\Task\SearchTaskList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

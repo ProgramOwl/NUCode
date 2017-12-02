@@ -1,6 +1,6 @@
 ﻿:root {
-    --darkBase: black;
-    --lightBase: white;
+    --black: black;
+    --white: white;
     --black: black;
     --baige: rgb(255,250,236); /*rgb(255,230,179);*/
     --dbaige: rgb(255,230,179);
@@ -10,34 +10,52 @@
     --blue: rgb(13,204,255);
     --brown: rgb(108,89,83);
     /*Nav*/
-    --navB: var(--baige);
-    --navA: var(--brown);
-    --navADHover: var(--blue);
-    --navhr: var(--orange);
+    --navBI: url(../Images/DarkBrick.png);
+    --navB: var(--black);
+    --navA: var(--baige);
+    --navADHover: var(--orange);
+    --navhr: var(--green);
     /*nav head*/
-    --navHB: var(--brown);
-    --navHC: var(--blue);
-    --navHD: var(--green);
-    --navHDHover: var(--orange);
-    --navHAct: var(--green);
+    --navHB: var(--black);
+    --navHC: var(--green);
+    --navHD: var(--orange);
+    --navHDHover: var(--blue);
+    --navHAct: var(--orange);
     --navHDAct: var(--blue);
     /*head and foot*/
     /*--headFootBack: 'godOfWar';*/
-    --headFootC: var(--brown);
-    --headFootBack: rgb(255,250,236);
+    --headFootC: var(--baige);
+    --headFootBack: var(--black);
     --headFootBorder: var(--orange);
     /*Body*/
-    --bodyB: black;
-    --hr: var(--green);
-    --h2: var(--baige);
-    --h4: var(--baige);
-    --hND: var(--red);
+    --bodyC: var(--brown);
+    --bodyB: var(--baige);
+    --bodyBI: url("../Images/brushed_alu.png");
+    --hr: var(--blue);
+    --h2: var(--brown);
+    --h4: var(--brown);
+    --hND: var(--green);
     /*task box*/
-    --tShadow: var(--orange);
-    --tB: var(--baige);
-    --tC: var(--brown);
-    --tCH: var(--orange);
-    --tBor: var(--blue);
+    --tCheckC: var(--white);
+    --tCheckB: var(--black);
+    --tCheckBor: rgba(255,128,51,1);
+    --tCheckCH: var(--black);
+    --tCheckBH: var(--white);
+    --tShadow: var(--black);
+    --tB: var(--black);
+    --tC: var(--baige);
+    --tCH: var(--brown);
+    --tBor: var(--green);
+    --thr: var(--dbaige);
+    /*TaskListBar*/
+    --tlC: var(--baige);
+    --tlB: var(--black);
+    --tlBor: var(--blue);
+    --tlCH: var(--brown);
+    --tlBDH: var(--orange);
+    --tlBH: var(--bodyB);
+    --tlCA: var(--baige);
+    --tlBA: var(--brown);
 }
 
 /*generic*/
@@ -51,8 +69,8 @@ html {
     min-height: 300px;
     min-width: 400px;
     font-size: 16px;
-    background-color: var(--bodyB);
-    color: var(--baige);
+    background-image: var(--navBI);
+    color: var(--red);
 }
 li {
     list-style: none;
@@ -68,11 +86,16 @@ body {
     margin-left: 100px;
     width: calc(100% - 100px);
     min-width: 340px;
+    color: var(--brown);
 }
 h2 {
     color: var(--h2);
     text-decoration: underline solid var(--hND);
     padding: .3em;
+}
+h4 {
+    color: var(--h2);
+    padding-bottom: .3em;
 }
 hr {
     border: none;
@@ -83,13 +106,13 @@ hr {
 }
 p {
     padding: 5px 10px 5px 0;
-    color: var(--baige);
+    color: var(--brown);
 }
 a{
-    color: var(--orange);
+    color: var(--blue);
 }
 a:hover {
-    color: var(--green);
+    color: var(--orange);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -139,8 +162,9 @@ textarea {
     z-index: 1;
     position: relative;
     right: 0;
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
+    color: var(--brown);
 }
 .navbar {
     z-index: 0;
@@ -160,6 +184,7 @@ textarea {
     max-width: 100px;*/
     height: 100%;
     background-color: var(--navB);
+    background-image: var(--navBI);
     color: var(--navA);
 }
 
@@ -220,6 +245,7 @@ textarea {
     padding-bottom: 20px;
     padding-top: 5px;
     background-color: var(--navB);
+    background-image: var(--navBI);
 }
 /*the login partial links, .nav, .navbar-nav*/
 .bottom {
@@ -228,10 +254,12 @@ textarea {
     z-index: -1;
 }
 .navbar-right {
-    height:30%;
+    padding-bottom:10%;
+    height:auto;
     min-height: 100px;
-    max-height: 200px;
+    max-height: 300px;
     width: 100px;
+    word-break:break-word;
 }
 
 /*specials*/
@@ -244,33 +272,36 @@ textarea {
 }
 .btn {
     font-size: 16px;
-    color: var(--blue);
-    background-color: var(--baige);
-    border: 3px outset var(--brown);
+    font-weight: 800;
     min-height: 1.25em;
     padding: .3em 1.5em;
     margin: 5px 0;
     transition-duration: .5s;
+    color: var(--baige);
+    background-color: var(--black);
+    border: 3px outset var(--green);
 }
     .btn:hover {
-        background-color: var(--brown);
-        border: 3px outset var(--baige);
+        color: var(--baige);
+        background-color: rgba(0,0,0, 0.7);
+        border: 3px outset var(--green);
     }
     .btn:active {
-        color: var(--green);
-        border: 3px inset var(--baige);
+        background-color: var(--black);
+        color: var(--baige);
+        border: 3px inset var(--green);
     }
 .input-box, .form-control {
     min-height: 1.25em;
     padding: 3px 5px;
     margin: 3px 0;
     font-size: 16px;
-    color: var(--brown);
-    background-color: var(--baige);
-    border: 2px ridge var(--blue);
-    border-left: 4px ridge var(--blue);
-    border-bottom: 3px groove var(--blue);
-    border-right: 5px groove var(--blue);
+    color: var(--baige);
+    background-color: var(--black);
+    border: 2px ridge var(--green);
+    border-left: 4px ridge var(--green);
+    border-bottom: 3px groove var(--green);
+    border-right: 5px groove var(--green);
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -291,11 +322,12 @@ textarea {
     min-width: 100px;
     margin-left: auto;
     padding-right: 0;
-    background: #eee;
-    border: 3px ridge #aaa;
-    border-top: 3px groove #aaa;
+    background: var(--baige);
+    border: 3px ridge var(--orange);
+    border-bottom: 3px groove var(--orange);
     border-right: none;
-    box-shadow: 2px 5px 10px black;
+    box-shadow: -0.5px 1px 3px black;
+    color: var(--blue);
 }
 
 /*About*/
@@ -303,7 +335,7 @@ textarea {
     padding: 5px 0 20px 5px;
 }
     .about-left p {
-        color: var(--baige);
+        color: var(--brown);
         padding: 5px 10px;
         width: 50%;
         min-width: 100px;
@@ -322,8 +354,8 @@ textarea {
     height: 25%;
     min-height: 50px;
     max-height: 300px;
-    background-color: var(--baige);
-    color: var(--red);
+    background-color: rgba(13,204,255, 0.5);
+    color: var(--black);
     border-bottom: 4px groove var(--orange);
     border-top: 4px ridge var(--orange);
     border-left: 4px ridge var(--orange);
@@ -335,7 +367,7 @@ textarea {
 .contact {
     padding: 5px 10px;
 }
-    .contact h4 {
+    .contact h4, .sec-right h3 {
         color: var(--h4);
         text-decoration: underline solid var(--hND);
         padding-top: .3em;
@@ -393,10 +425,16 @@ textarea {
     }
 
 .sorting-bar {
+    position: relative;
+    top: -10px;
+    right: 10px;
     margin: 0;
+    width: 100%;
+    padding-left: 10px;
     font-size: 16px;
-    background-color: var(--baige);
-    color: var(--brown);
+    background-color: var(--tlB);
+    background-image: var(--navBI);
+    color: var(--tlC);
     display: flex;
     flex-wrap: wrap;
 }
@@ -410,22 +448,24 @@ textarea {
     .sorting-bar a, .sr-head {
         text-align: center;
         border: none;
-        border-right: 2px solid var(--green);
+        border-right: 2px solid var(--tlBor);
         text-align: center;
         padding: .4em 1em;
-        color: var(--brown);
-        background-color: var(--baige);
+        color: var(--tlC);
+        background-color: var(--tlB);
+        background-image: var(--navBI);
         transition-duration: 0.5s;
     }
         .sorting-bar a:hover {
             cursor: pointer;
-            background-color: var(--bodyB);
-            color: var(--baige);
-            text-decoration: underline solid var(--blue);
+            background-image: none;
+            background-color: var(--tlBH);
+            color: var(--tlCH);
+            text-decoration: underline solid var(--tlBDH);
         }
         .sorting-bar a:active {
-            color: var(--baige);
-            background-color: var(--brown);
+            color: var(--tlCA);
+            background-color: var(--tlBA);
         }
 
 .tl-sr-right {
@@ -435,22 +475,24 @@ textarea {
 }
 
 .sb-btn {
+    margin:0;
     text-align: center;
     padding: .2em 1em;
     font-size: 14px;
-    color: var(--blue);
-    background-color: var(--baige);
-    border: 3px outset var(--brown);
+    color: var(--baige);
+    background-color: var(--black);
+    border: 3px outset var(--blue);
+    border-radius:0;
     transition-duration: 0.5s;
 }
     .sb-btn:hover {
         cursor: pointer;
-        background-color: var(--brown);
-        border: 3px outset var(--baige);
+        background-color: var(--baige);
+       color: var(--black);
     }
     .sb-btn:active {
-        color: var(--green);
-        border: 3px inset var(--baige);
+        color: var(--orange);
+        border: 3px inset var(--blue);
     }
 
 /*task Details*/
@@ -499,29 +541,32 @@ textarea {
 
 /*Task Partial*/
 .t-checkbox {
+    margin-left:2px;
+    cursor: pointer;
     width: 20px;
     height: 20px;
-    background-color: var(--tB);
-    color: var(--tC);
-    border: 3px outset var(--tBor);
+    background-color: var(--tCheckB);
+    color: var(--tCheckCC);
+    border: 2px outset var(--tCheckBor);
     transition-duration: .5s;
 }
     .t-checkbox:hover {
-        background-color: var(--tC);
-        color: var(--tB);
-        border: 3px outset var(--tBor);
+        background-color: var(--tCheckBH);
+        color: var(--tCheckCH);
+        border: 2px outset var(--tCheckBor);
     }
     .t-checkbox:active {
-        border: 3px inset var(--tBor);
+        border: 2px inset var(--tCheckBor);
     }
     .t-checkbox:checked {
-        background-color: var(--tB);
-        color: var(--tC);
-        border: 3px inset var(--tBor);
+        background-color: var(--tCheckB);
+        color: var(--tCheckC);
+        border: 3px inset var(--tCheckBor);
     }
 
 /*colorChange*/
 .task-box {
+    cursor: default;
     transition-duration: 0.3s;
     position: static;
     margin: 3px 0;
@@ -536,14 +581,15 @@ textarea {
     /*box-shadow: 2px 0 10px black;*/
 }
     .task-box:hover {
-        box-shadow: 2px 0 10px var(--tShadow);
+        box-shadow: 3px 3px 7px var(--tShadow);
     }
     .task-box hr {
         width: 100%;
+        border-color: var(--thr);
     }
 
 .task-box p{
-    color:var(--brown);
+    color:var(--tC);
 }
 
 .t-top-bar {
@@ -568,16 +614,7 @@ textarea {
         vertical-align: middle;
     }
 
-.task-box .t-hide {
-    display: none;
-    height: 0;
-    transition-duration: 0.5s;
-}
-.task-box:hover .t-hide {
-    display: block;
-    height: auto;
-    transition-duration: 0.5s;
-}
+
 
 /*colorChange*/
 .task-h3 {
@@ -593,10 +630,20 @@ textarea {
 
 .t-tag {
     font-size: 15px;
+    margin-bottom: -10px;
 }
 .t-body {
     padding: 0 5px;
     font-size: 16px;
+}
+.task-box .t-hide {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease-in-out 0.5s;
+}
+
+.task-box:hover .t-hide  {
+    height: 80px;
 }
 
 /*colorChange*/
@@ -606,7 +653,7 @@ textarea {
     height: 65px;
     width: auto;
     text-align: center;
-    background: var(--headFootBack);
+    background-color: var(--headFootBack);
     border-bottom: 10px ridge var(--headFootBorder);
 }
 header {
@@ -617,15 +664,16 @@ header {
 }
 /*Foot*/
 footer {
-    /*position: sticky;
+    height:27px;
+    position: sticky;
     bottom: 0;
-    z-index: -1;*/
+    z-index: -1;
     width: auto;
     border: unset;
     border-top: 5px ridge var(--headFootBorder);
     border-bottom: 5px groove var(--headFootBorder);
     text-align: center;
-    background: var(--headFootBack);
+    background-color: var(--headFootBack);
 }
     footer p {
         margin: 0.1em auto;
@@ -634,10 +682,21 @@ footer {
     }
 
 /*body div*/
+.backbody {
+    background-image: var(--bodyBI);
+}
+.backbody2 {
+    /*background: rgba(255,230,179, 0.2);*/
+    /*background: rgba(235,210,199, 0.1);*/
+    background: rgba(255,255,255, 0.1);
+}
 .body-content {
     /*z-index: 2;*/
-    background: var(--bodyB);
-    color: var(--white);
+    background: rgba(255,250,176, 0.2);
+    /*background-image: var(--bodyBI);*/
+    color: var(--bodyC);
     padding: 10px;
     padding-right: 0;
+    min-height: calc(100vh - 27px - 65px - 40px);
+    margin: 0;
 }

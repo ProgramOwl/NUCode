@@ -12,7 +12,7 @@ namespace TaskService.Models
         [Required(ErrorMessage = "You must provide a name for this task")]
         public string Name { get; set; }
         public DateTime DueDate { get; set; }
-        public TimeSpan EstimateDuration { get; set; }
+        public int EstimateDuration { get; set; }
         public List<string> Tags { get; set; }
         public bool IsCompleted { get; set; }
         public DateTime DateCompleted { get; set; }
@@ -24,7 +24,7 @@ namespace TaskService.Models
         [Required(ErrorMessage = "You must provide a name for this task")]
         public int TaskValue { get; set; }
 
-        public TaskModel(int id, string name = "Task", DateTime dueDate = new DateTime(), TimeSpan estDuration = new TimeSpan(), List<string> tags = null, bool isCompleted = false, DateTime dateCompleted = new DateTime(), DateTime dateStart = new DateTime(), string desc = "Task Due")
+        public TaskModel(int id, string name = "Task", DateTime dueDate = new DateTime(), int estDuration = 5, List<string> tags = null, bool isCompleted = false, DateTime dateCompleted = new DateTime(), DateTime dateStart = new DateTime(), string desc = "Task Due")
         {
             TaskId = id;
             Name = name;
@@ -45,7 +45,7 @@ namespace TaskService.Models
             TaskId = Id++;
             Name = name;
             DueDate = new DateTime(2017, 11, 12);
-            EstimateDuration = new TimeSpan(1, 30, 0);
+            EstimateDuration = 5;
             Tags = new List<string>()
             {
                 "Task",

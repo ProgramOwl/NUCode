@@ -98,5 +98,35 @@ namespace NUCode.Controllers
             Service.ArchiveTask(model);
             return View("TaskList", Service.GetAllTasksById(model.UserId));
         }
+
+        public ActionResult SearchByName()
+        {
+            ViewBag.Title = "Order By Name";
+            return View("SearchTaskList", new AllTasks() { Tasks = Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)).Tasks.OrderBy(x => x.Name).ToList() });
+        }
+
+        public ActionResult SearchByTag()
+        {
+            ViewBag.Title = "Order By Tag";
+            return View("SearchTaskList", new AllTasks() { Tasks = Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)).Tasks.OrderBy(x => x.Tags[0]).ToList() });
+        }
+
+        public ActionResult SearchByDueDate()
+        {
+            ViewBag.Title = "Order By Due Date";
+            return View("SearchTaskList", new AllTasks() { Tasks = Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)).Tasks.OrderBy(x => x.DueDate).ToList() });
+        }
+
+        public ActionResult SearchByTimeEst()
+        {
+            ViewBag.Title = "Order By Time Est";
+            return View("SearchTaskList", new AllTasks() { Tasks = Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)).Tasks.OrderBy(x => x.EstimateDuration).ToList() });
+        }
+
+        public ActionResult SearchByDifficulty()
+        {
+            ViewBag.Title = "Order By Time Est";
+            return View("SearchTaskList", new AllTasks() { Tasks = Service.GetAllTasksById(Service.GetUserIdByName(User.Identity.Name)).Tasks.OrderBy(x => x.TaskValue).ToList() });
+        }
     }
 }
