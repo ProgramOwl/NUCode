@@ -15,6 +15,7 @@ namespace TaskService.Services
         void AddTask(TaskModel model);
         void EditTaskById(int id, TaskModel model);
         void DeleteTaskById(int id);
+        int GetVelocity(string name);
         AllTasks GetAllArchivedTasksById(string currentUserId);
         UserList GetAllUsers();
         void DemoteAdminToUserById(string Id);
@@ -23,5 +24,6 @@ namespace TaskService.Services
         AllTasks GetAllTasksById(string currentUserId);
         AllTasks GetTodayTasks(string name);
         void ArchiveTask(TaskModel model);
+        int GetVelocityByMonth(string name, int month);
     }
 }

@@ -24,7 +24,7 @@ namespace TaskService.Services
                 {
                     Name = model.Name,
                     DateCompleted = model.DateCompleted,
-                    DateStart = model.DateStart,
+                    DateStart = DateTime.Now,
                     Description = model.Description,
                     DueDate = model.DueDate,
                     EstimatedDuration = model.EstimateDuration.ToString(),
@@ -70,7 +70,7 @@ namespace TaskService.Services
                     IsCompleted = model.IsCompleted,
                     Tag1 = model.Tags[0],
                     Tag2 = model.Tags[1],
-                    Tag3 = model.Tags[2],
+                    Tag3 = model.Tags[2]
                 };
 
                 DeleteTaskById(model.TaskId);
@@ -259,7 +259,7 @@ namespace TaskService.Services
                 TaskModelDAL.Task taskToEdit = new TaskModelDAL.Task()
                 {
                     Name = model.Name,
-                    DateCompleted = model.DateCompleted,
+                    DateCompleted = DateTime.Now,
                     DateStart = model.DateStart,
                     Description = model.Description,
                     DueDate = model.DueDate,
@@ -288,6 +288,58 @@ namespace TaskService.Services
                     string s = e.Message;
                 }
             }
+        }
+
+        public int GetVelocity(string name)
+        {
+            int count = 0;
+            int total = 0;
+            var taskList = GetAllArchivedTasksById(GetUserIdByName(name));
+            foreach (var t in taskList.Tasks)
+            {
+                if (DateTime.Now.Month == 1)
+                {
+                    if (t.DateCompleted.Year == DateTime.Now.Year-1 && t.DateCompleted.Month == 12)
+                    {
+                        total += t.TaskValue;
+                        count++;
+                    }
+                }
+                else
+                {
+                    if (t.DateCompleted.Year == DateTime.Now.Year && t.DateCompleted.Month == DateTime.Now.Month-1)
+                    {
+                        total += t.TaskValue;
+                        count++;
+                    }
+                }
+                
+            }
+            if (count == 0)
+            {
+                return 0;
+            }
+            return total/count;
+        }
+
+        public int GetVelocityByMonth(string name, int month)
+        {
+            int count = 0;
+            int total = 0;
+            var taskList = GetAllArchivedTasksById(GetUserIdByName(name));
+            foreach (var t in taskList.Tasks)
+            {
+                if (t.DateCompleted.Month == month && t.DateCompleted.Year == DateTime.Now.Year)
+                {
+                    total += t.TaskValue;
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                return 0;
+            }
+            return total / count;
         }
     }
 }
